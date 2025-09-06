@@ -67,10 +67,6 @@ const Index = () => {
       <ImprovedHeader />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Weather Card - Always visible at top */}
-        <div className="mb-8">
-          <RealTimeWeatherCard />
-        </div>
 
         {activeFeature ? (
           <div className="space-y-6">
@@ -86,6 +82,10 @@ const Index = () => {
           </div>
         ) : (
           <div className="space-y-8">
+            {/* Weather Card - Home only */}
+            <div className="mb-8">
+              <RealTimeWeatherCard />
+            </div>
             {/* Welcome Section */}
             <div className="text-center py-8">
               <h1 className="font-display font-bold text-4xl text-foreground mb-4">
@@ -105,26 +105,12 @@ const Index = () => {
             {/* Feature Grid */}
             <div>
               <h2 className="font-display font-bold text-2xl text-foreground mb-6 text-center">
-                Smart Farming Tools (स्मार्ट कृषि उपकरण)
+                Smart Farming Tools
               </h2>
               <FeatureGrid onFeatureClick={handleFeatureClick} />
             </div>
 
-            {/* Stats Section */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-              <div className="gov-card p-6 text-center">
-                <div className="text-3xl font-bold text-primary mb-2">10,000+</div>
-                <p className="text-muted-foreground">Farmers Helped</p>
-              </div>
-              <div className="gov-card p-6 text-center">
-                <div className="text-3xl font-bold text-primary mb-2">25%</div>
-                <p className="text-muted-foreground">Average Yield Increase</p>
-              </div>
-              <div className="gov-card p-6 text-center">
-                <div className="text-3xl font-bold text-primary mb-2">15+</div>
-                <p className="text-muted-foreground">Indian Languages</p>
-              </div>
-            </div>
+            {/* Stats Section removed by request */}
           </div>
         )}
       </main>

@@ -1,5 +1,5 @@
-import { Globe, Menu, X, Settings } from "lucide-react";
-import { useState, useEffect } from "react";
+import { MapPin, Loader2 } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 
 interface Language {
   code: string;
@@ -10,19 +10,19 @@ interface Language {
 }
 
 const languages: Language[] = [
-  { code: "en", name: "English", nativeName: "English", flag: "🇺🇸", direction: 'ltr' },
-  { code: "hi", name: "Hindi", nativeName: "हिंदी", flag: "🇮🇳", direction: 'ltr' },
-  { code: "te", name: "Telugu", nativeName: "తెలుగు", flag: "🇮🇳", direction: 'ltr' },
-  { code: "ta", name: "Tamil", nativeName: "தமிழ்", flag: "🇮🇳", direction: 'ltr' },
-  { code: "bn", name: "Bengali", nativeName: "বাংলা", flag: "🇮🇳", direction: 'ltr' },
-  { code: "mr", name: "Marathi", nativeName: "मराठी", flag: "🇮🇳", direction: 'ltr' },
-  { code: "gu", name: "Gujarati", nativeName: "ગુજરાતી", flag: "🇮🇳", direction: 'ltr' },
-  { code: "kn", name: "Kannada", nativeName: "ಕನ್ನಡ", flag: "🇮🇳", direction: 'ltr' },
-  { code: "ml", name: "Malayalam", nativeName: "മലയാളം", flag: "🇮🇳", direction: 'ltr' },
-  { code: "pa", name: "Punjabi", nativeName: "ਪੰਜਾਬੀ", flag: "🇮🇳", direction: 'ltr' },
-  { code: "ur", name: "Urdu", nativeName: "اردو", flag: "🇮🇳", direction: 'rtl' },
-  { code: "as", name: "Assamese", nativeName: "অসমীয়া", flag: "🇮🇳", direction: 'ltr' },
-  { code: "or", name: "Odia", nativeName: "ଓଡ଼ିଆ", flag: "🇮🇳", direction: 'ltr' },
+  { code: "en", name: "English", nativeName: "English", flag: "", direction: 'ltr' },
+  { code: "hi", name: "Hindi", nativeName: "", flag: "", direction: 'ltr' },
+  { code: "te", name: "Telugu", nativeName: "", flag: "", direction: 'ltr' },
+  { code: "ta", name: "Tamil", nativeName: "", flag: "", direction: 'ltr' },
+  { code: "bn", name: "Bengali", nativeName: "", flag: "", direction: 'ltr' },
+  { code: "mr", name: "Marathi", nativeName: "", flag: "", direction: 'ltr' },
+  { code: "gu", name: "Gujarati", nativeName: "", flag: "", direction: 'ltr' },
+  { code: "kn", name: "Kannada", nativeName: "", flag: "", direction: 'ltr' },
+  { code: "ml", name: "Malayalam", nativeName: "", flag: "", direction: 'ltr' },
+  { code: "pa", name: "Punjabi", nativeName: "", flag: "", direction: 'ltr' },
+  { code: "ur", name: "Urdu", nativeName: "", flag: "", direction: 'rtl' },
+  { code: "as", name: "Assamese", nativeName: "", flag: "", direction: 'ltr' },
+  { code: "or", name: "Odia", nativeName: "", flag: "", direction: 'ltr' },
 ];
 
 // Translation content
@@ -30,107 +30,141 @@ const translations = {
   en: {
     title: "KisanAI",
     subtitle: "Smart Agriculture Platform",
-    home: "Home",
-    about: "About",
-    contact: "Contact",
-    support: "Support",
-    selectLanguage: "Select Language",
-    welcome: "Welcome to KisanAI Platform",
-    description: "Empowering farmers with AI-driven insights for better crop yields, smart irrigation, and sustainable farming practices.",
-    badges: {
-      certified: "Government Certified",
-      aiPowered: "AI Powered",
-      farmerFriendly: "Farmer Friendly"
-    },
-    tools: "Smart Farming Tools",
-    footer: "Ministry of Agriculture & Farmers Welfare",
-    footerSubtitle: "Powered by Artificial Intelligence for Indian Agriculture"
   },
   hi: {
-    title: "किसानAI",
-    subtitle: "स्मार्ट कृषि प्लेटफॉर्म",
-    home: "होम",
-    about: "हमारे बारे में",
-    contact: "संपर्क",
-    support: "सहायता",
-    selectLanguage: "भाषा चुनें",
-    welcome: "किसानAI प्लेटफॉर्म में आपका स्वागत है",
-    description: "बेहतर फसल उत्पादन, स्मार्ट सिंचाई और टिकाऊ कृषि प्रथाओं के लिए AI-संचालित अंतर्दृष्टि के साथ किसानों को सशक्त बनाना।",
-    badges: {
-      certified: "सरकारी प्रमाणित",
-      aiPowered: "AI संचालित",
-      farmerFriendly: "किसान अनुकूल"
-    },
-    tools: "स्मार्ट कृषि उपकरण",
-    footer: "कृषि और किसान कल्याण मंत्रालय",
-    footerSubtitle: "भारतीय कृषि के लिए कृत्रिम बुद्धिमत्ता द्वारा संचालित"
+    title: "",
+    subtitle: "",
   },
   te: {
-    title: "కిసాన్AI",
-    subtitle: "స్మార్ట్ అగ్రికల్చర్ ప్లాట్‌ఫాం",
-    home: "హోమ్",
-    about: "మా గురించి",
-    contact: "సంప్రదింపులు",
-    support: "మద్దతు",
-    selectLanguage: "భాష ఎంచుకోండి",
-    welcome: "కిసాన్AI ప్లాట్‌ఫాంకు స్వాగతం",
-    description: "మెరుగైన పంట దిగుబడులు, స్మార్ట్ నీటిపారుదల మరియు స్థిరమైన వ్యవసాయ పద్ధతుల కోసం AI-నడిచే అంతర్దృష్టులతో రైతులను శక్తివంతం చేయడం.",
-    badges: {
-      certified: "ప్రభుత్వ ధృవీకరణ",
-      aiPowered: "AI శక్తితో",
-      farmerFriendly: "రైతు అనుకూలం"
-    },
-    tools: "స్మార్ట్ వ్యవసాయ సాధనాలు",
-    footer: "వ్యవసాయం మరియు రైతు సంక్షేమ మంత్రిత్వ శాఖ",
-    footerSubtitle: "భారతీయ వ్యవసాయం కోసం కృత్రిమ మేధస్సుతో శక్తివంతం"
+    title: "",
+    subtitle: "",
   }
 };
 
 const ImprovedHeader = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState<string>('en');
   const [detectedLanguage, setDetectedLanguage] = useState<string | null>(null);
 
+  // Geolocation state
+  const [locationText, setLocationText] = useState<string>("Detecting location...");
+  const [locError, setLocError] = useState<string | null>(null);
+  const [isLocLoading, setIsLocLoading] = useState<boolean>(true);
+  const watchIdRef = useRef<number | null>(null);
+
+  // Note: Weather is displayed in RealTimeWeatherCard. Header only shows location.
+
   // Detect user's browser language on component mount
   useEffect(() => {
-    const browserLang = navigator.language.split('-')[0]; // Get language code without region
+    const browserLang = navigator.language.split('-')[0];
     const supportedLang = languages.find(lang => lang.code === browserLang);
-    
-    if (supportedLang && browserLang !== 'en') {
+
+    if (supportedLang) {
       setDetectedLanguage(browserLang);
-      // Auto-switch to detected language if it's not English
       setCurrentLanguage(browserLang);
+      document.dir = supportedLang.direction;
     }
   }, []);
 
-  const getCurrentLanguage = (): Language => {
-    return languages.find(lang => lang.code === currentLanguage) || languages[0];
-  };
+  const reverseGeocode = async (lat: number, lon: number) => {
+    try {
+      // OpenStreetMap Nominatim reverse geocoding (no API key required)
+      const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
+      const res = await fetch(url, {
+        headers: {
+          // Note: Browsers may ignore custom User-Agent; Referer is typically sent automatically
+        },
+      });
+      if (!res.ok) throw new Error(`Reverse geocoding failed: ${res.status}`);
+      const data = await res.json();
+      const addr = data.address || {};
+      const locality = addr.city || addr.town || addr.village || addr.hamlet || addr.suburb || "";
+      const district = addr.state_district || addr.county || "";
+      const state = addr.state || "";
+      const country = addr.country_code ? String(addr.country_code).toUpperCase() : "";
 
-  const getCurrentTranslations = () => {
-    return translations[currentLanguage as keyof typeof translations] || translations.en;
-  };
-
-  const handleLanguageChange = (langCode: string) => {
-    setCurrentLanguage(langCode);
-    setIsLanguageMenuOpen(false);
-    setIsMenuOpen(false);
-    
-    // Update document direction for RTL languages
-    const selectedLang = languages.find(lang => lang.code === langCode);
-    if (selectedLang) {
-      document.dir = selectedLang.direction;
+      const parts = [locality, district || state].filter(Boolean);
+      const label = parts.length ? parts.join(', ') + (country ? `, ${country}` : '') : data.display_name || `${lat.toFixed(4)}, ${lon.toFixed(4)}`;
+      setLocationText(label);
+      setLocError(null);
+    } catch (e: any) {
+      setLocError(e?.message || 'Unable to determine location');
+      setLocationText(`${lat.toFixed(4)}, ${lon.toFixed(4)}`);
+    } finally {
+      setIsLocLoading(false);
     }
   };
 
-  const t = getCurrentTranslations();
+  const startGeolocation = () => {
+    if (!('geolocation' in navigator)) {
+      setLocError('Geolocation not supported');
+      setIsLocLoading(false);
+      return;
+    }
+
+    // Clear any existing watcher before starting a new one
+    if (watchIdRef.current !== null) {
+      navigator.geolocation.clearWatch(watchIdRef.current);
+      watchIdRef.current = null;
+    }
+
+    const id = navigator.geolocation.watchPosition(
+      (pos) => {
+        const { latitude, longitude } = pos.coords;
+        setIsLocLoading(true);
+        reverseGeocode(latitude, longitude);
+      },
+      (err) => {
+        if (err.code === err.PERMISSION_DENIED) {
+          setLocError('Location permission denied');
+          setLocationText('Permission denied');
+        } else if (err.code === err.POSITION_UNAVAILABLE) {
+          setLocError('Location unavailable');
+          setLocationText('Location unavailable');
+        } else if (err.code === err.TIMEOUT) {
+          setLocError('Location request timed out');
+          setLocationText('Location timeout');
+        } else {
+          setLocError('Failed to get location');
+          setLocationText('Location error');
+        }
+        setIsLocLoading(false);
+      },
+      { enableHighAccuracy: true, maximumAge: 30000, timeout: 10000 }
+    );
+
+    watchIdRef.current = id as unknown as number;
+  };
+
+  useEffect(() => {
+    // Attempt to query permission state (optional; not supported everywhere)
+    try {
+      navigator.permissions?.query({ name: 'geolocation' }).then(() => {
+        startGeolocation();
+      }).catch(() => startGeolocation());
+    } catch {
+      startGeolocation();
+    }
+
+    return () => {
+      if (watchIdRef.current !== null && 'geolocation' in navigator) {
+        navigator.geolocation.clearWatch(watchIdRef.current);
+      }
+    };
+  }, []);
+
+  const t = translations[currentLanguage as keyof typeof translations] || translations.en;
+
+  const handleRetry = () => {
+    setLocError(null);
+    setIsLocLoading(true);
+    startGeolocation();
+  };
 
   return (
     <header className="bg-card border-b border-card-border shadow-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          {/* Branding */}
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-light rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">🌾</span>
@@ -143,133 +177,31 @@ const ImprovedHeader = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors">
-              {t.home}
-            </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
-              {t.about}
-            </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">
-              {t.contact}
-            </a>
-            <a href="#support" className="text-foreground hover:text-primary transition-colors">
-              {t.support}
-            </a>
-            
-            {/* Language Selector */}
-            <div className="relative">
-              <button 
-                className="flex items-center space-x-2 px-3 py-2 bg-accent rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors border border-card-border"
-                onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-              >
-                <Globe className="w-4 h-4" />
-                <span className="text-sm font-medium">
-                  {getCurrentLanguage().flag} {getCurrentLanguage().nativeName}
-                </span>
-                {detectedLanguage && currentLanguage === detectedLanguage && (
-                  <div className="w-2 h-2 bg-success rounded-full" title="Auto-detected language" />
-                )}
-              </button>
-              
-              {isLanguageMenuOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-card border border-card-border rounded-lg shadow-strong z-50 max-h-80 overflow-y-auto">
-                  <div className="p-3 border-b border-card-border">
-                    <p className="text-sm font-medium text-foreground">{t.selectLanguage}</p>
-                    {detectedLanguage && (
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Auto-detected: {languages.find(l => l.code === detectedLanguage)?.nativeName}
-                      </p>
-                    )}
-                  </div>
-                  <div className="py-2">
-                    {languages.map((lang) => (
-                      <button
-                        key={lang.code}
-                        onClick={() => handleLanguageChange(lang.code)}
-                        className={`w-full px-4 py-3 text-left hover:bg-accent flex items-center justify-between transition-colors ${
-                          currentLanguage === lang.code ? 'bg-accent border-r-2 border-primary' : ''
-                        }`}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <span className="text-lg">{lang.flag}</span>
-                          <div>
-                            <div className="text-sm font-medium text-foreground">{lang.nativeName}</div>
-                            <div className="text-xs text-muted-foreground">{lang.name}</div>
-                          </div>
-                        </div>
-                        {currentLanguage === lang.code && (
-                          <div className="w-2 h-2 bg-primary rounded-full" />
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+          {/* Live Location */}
+          <div className="flex items-center">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-card-border bg-accent min-w-[220px] justify-center">
+              {isLocLoading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin text-primary" />
+                  <span className="text-sm text-muted-foreground">Detecting location...</span>
+                </>
+              ) : (
+                <>
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span className="text-sm text-foreground truncate max-w-[280px]" title={locError ? undefined : locationText}>
+                    {locError ? 'Location unavailable' : locationText}
+                  </span>
+                  {locError && (
+                    <button onClick={handleRetry} className="ml-2 text-xs text-primary underline">
+                      Retry
+                    </button>
+                  )}
+                </>
               )}
             </div>
-          </nav>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg bg-accent border border-card-border"
-            >
-              {isMenuOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
-            </button>
           </div>
         </div>
       </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-card border-t border-card-border">
-          <div className="px-4 py-4 space-y-3">
-            <a href="#home" className="block text-foreground hover:text-primary py-2">
-              {t.home}
-            </a>
-            <a href="#about" className="block text-foreground hover:text-primary py-2">
-              {t.about}
-            </a>
-            <a href="#contact" className="block text-foreground hover:text-primary py-2">
-              {t.contact}
-            </a>
-            <a href="#support" className="block text-foreground hover:text-primary py-2">
-              {t.support}
-            </a>
-            
-            <div className="pt-3 border-t border-card-border">
-              <div className="flex items-center space-x-2 mb-3">
-                <Globe className="w-4 h-4 text-primary" />
-                <p className="text-sm font-medium text-foreground">{t.selectLanguage}</p>
-              </div>
-              <div className="grid grid-cols-2 gap-2 max-h-60 overflow-y-auto">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => handleLanguageChange(lang.code)}
-                    className={`p-3 rounded text-sm flex items-center space-x-2 border transition-colors ${
-                      currentLanguage === lang.code 
-                        ? "bg-primary text-primary-foreground border-primary" 
-                        : "bg-accent hover:bg-primary hover:text-primary-foreground border-card-border"
-                    }`}
-                  >
-                    <span>{lang.flag}</span>
-                    <div className="text-left">
-                      <div className="font-medium">{lang.nativeName}</div>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   );
 };

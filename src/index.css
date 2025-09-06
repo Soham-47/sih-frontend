@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -35,6 +35,10 @@
     --card-foreground: 150 30% 15%;
     --card-border: 142 20% 85%;
 
+    /* Popover/Dropdown surfaces (used by shadcn/ui Select, Dropdown, etc.) */
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 30% 15%;
+
     --muted: 45 25% 94%;
     --muted-foreground: 150 15% 45%;
 
@@ -70,7 +74,7 @@
     --radius-xl: 20px;
 
     /* Typography */
-    --font-primary: 'Inter', sans-serif;
+    --font-primary: 'Poppins', sans-serif;
     --font-display: 'Poppins', sans-serif;
 
     --sidebar-background: 0 0% 98%;
@@ -139,11 +143,17 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+    /* Use the same font as body to unify typography */
+    @apply font-primary;
   }
 }
 
 @layer components {
+  /* Unify typography: ensure any usage of font-display uses the primary font */
+  .font-display {
+    @apply font-primary;
+  }
+
   /* Government Card Style */
   .gov-card {
     @apply bg-card border border-card-border rounded-lg shadow-lg;
@@ -187,5 +197,13 @@
 
   .irrigation-not-needed {
     @apply bg-gradient-to-r from-success to-primary text-white px-4 py-2 rounded-lg font-medium;
+  }
+
+  /* Ensure dropdown/select options and popovers are readable on light background */
+  [role="listbox"],
+  .popover-content,
+  .dropdown-menu-content,
+  .select-content {
+    @apply bg-popover text-popover-foreground border border-border shadow-lg;
   }
 }

@@ -3,14 +3,12 @@ import { CloudRain, Sun, Cloud, Droplets, Thermometer, Wind, MapPin, AlertTriang
 import { Button } from "@/components/ui/button";
 
 interface WeatherData {
-  temperature: number;
-  humidity: number;
-  condition: string;
-  description: string;
-  windSpeed: number;
-  pressure: number;
-  visibility: number;
-  uvIndex: number;
+  temperature: number | null;
+  humidity: number | null;
+  condition: string; // derived from WMO code
+  description: string; // friendly text
+  windSpeed: number | null; // km/h
+  pressure: number | null; // hPa
   location: {
     name: string;
     country: string;
@@ -49,23 +47,24 @@ const RealTimeWeatherCard = () => {
           const { latitude, longitude } = position.coords;
           
           try {
-            // Reverse geocoding to get city name
+            // Reverse geocoding to get locality using Nominatim (no key required)
             const response = await fetch(
-              `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=demo_key`
+              `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
             );
-            
             if (response.ok) {
-              const geoData = await response.json();
-              if (geoData && geoData.length > 0) {
-                resolve({
-                  lat: latitude,
-                  lon: longitude,
-                  city: geoData[0].name,
-                  state: geoData[0].state,
-                  country: geoData[0].country,
-                });
-                return;
-              }
+              const data = await response.json();
+              const addr = data.address || {};
+              const locality = addr.city || addr.town || addr.village || addr.hamlet || addr.suburb || "Your Location";
+              const state = addr.state;
+              const country = (addr.country_code ? String(addr.country_code).toUpperCase() : addr.country) || "";
+              resolve({
+                lat: latitude,
+                lon: longitude,
+                city: locality,
+                state,
+                country,
+              });
+              return;
             }
             
             // Fallback if reverse geocoding fails
@@ -97,50 +96,69 @@ const RealTimeWeatherCard = () => {
     });
   };
 
-  // Fetch weather data from OpenWeatherMap API
-  const fetchWeatherData = async (lat: number, lon: number): Promise<WeatherData> => {
-    // Using demo data since API key would be needed for production
-    // In production, you'd use: https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric
-    
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Mock weather data that changes based on location and time
-    const conditions = ["clear", "clouds", "rain", "drizzle"];
-    const randomCondition = conditions[Math.floor(Math.random() * conditions.length)];
-    const temp = Math.floor(Math.random() * 20) + 15; // 15-35°C
-    const humidity = Math.floor(Math.random() * 40) + 40; // 40-80%
-    
-    const mockWeatherData: WeatherData = {
-      temperature: temp,
-      humidity: humidity,
-      condition: randomCondition,
-      description: getWeatherDescription(randomCondition),
-      windSpeed: Math.floor(Math.random() * 15) + 5,
-      pressure: Math.floor(Math.random() * 50) + 1000,
-      visibility: Math.floor(Math.random() * 5) + 5,
-      uvIndex: Math.floor(Math.random() * 8) + 1,
-      location: {
-        name: location?.city || "Unknown Location",
-        country: location?.country || "Unknown",
-        lat: lat,
-        lon: lon,
-      },
-      irrigationNeeded: temp > 30 || humidity < 50,
-      lastUpdated: new Date().toISOString(),
+  // Map WMO weather codes to a simple condition/description
+  const describeWeather = (code: number | null, isDay: boolean | null) => {
+    const day = isDay ?? true;
+    const map: Record<number, { condition: string; description: string }> = {
+      0: { condition: day ? "clear" : "clear", description: day ? "Clear sky" : "Clear night" },
+      1: { condition: "clear", description: "Mainly clear" },
+      2: { condition: "clouds", description: "Partly cloudy" },
+      3: { condition: "clouds", description: "Overcast" },
+      45: { condition: "clouds", description: "Fog" },
+      48: { condition: "clouds", description: "Depositing rime fog" },
+      51: { condition: "drizzle", description: "Light drizzle" },
+      53: { condition: "drizzle", description: "Moderate drizzle" },
+      55: { condition: "drizzle", description: "Dense drizzle" },
+      61: { condition: "rain", description: "Slight rain" },
+      63: { condition: "rain", description: "Moderate rain" },
+      65: { condition: "rain", description: "Heavy rain" },
+      80: { condition: "rain", description: "Rain showers" },
+      81: { condition: "rain", description: "Heavy rain showers" },
+      82: { condition: "rain", description: "Violent rain showers" },
+      71: { condition: "snow", description: "Slight snow" },
+      73: { condition: "snow", description: "Moderate snow" },
+      75: { condition: "snow", description: "Heavy snow" },
+      95: { condition: "storm", description: "Thunderstorm" },
+      96: { condition: "storm", description: "Thunderstorm with hail" },
+      99: { condition: "storm", description: "Thunderstorm with heavy hail" },
     };
-
-    return mockWeatherData;
+    return map[code ?? -1] || { condition: "clear", description: "Unknown" };
   };
 
-  const getWeatherDescription = (condition: string): string => {
-    const descriptions = {
-      clear: "Clear sky",
-      clouds: "Partly cloudy",
-      rain: "Light rain",
-      drizzle: "Light drizzle",
+  // Fetch weather data from Open-Meteo
+  const fetchWeatherData = async (lat: number, lon: number, loc?: LocationData): Promise<WeatherData> => {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,pressure_msl,is_day`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Weather fetch failed: ${res.status}`);
+    const data = await res.json();
+    const current = data.current || {};
+    const code: number | null = typeof current.weather_code === 'number' ? current.weather_code : null;
+    const isDay: boolean | null = typeof current.is_day === 'number' ? (current.is_day === 1) : (typeof current.is_day === 'boolean' ? current.is_day : null);
+    const desc = describeWeather(code, isDay);
+    const temp = typeof current.temperature_2m === 'number' ? current.temperature_2m : null;
+    const humidity = typeof current.relative_humidity_2m === 'number' ? current.relative_humidity_2m : null;
+    const wind = typeof current.wind_speed_10m === 'number' ? current.wind_speed_10m : null;
+    const pressure = typeof current.pressure_msl === 'number' ? current.pressure_msl : null;
+
+    // Simple irrigation heuristic: hot or dry -> needed
+    const irrigationNeeded = (temp != null && temp > 30) || (humidity != null && humidity < 50);
+
+    return {
+      temperature: temp,
+      humidity,
+      condition: desc.condition,
+      description: desc.description,
+      windSpeed: wind,
+      pressure,
+      location: {
+        name: loc?.city || location?.city || "Your Location",
+        country: loc?.country || location?.country || "",
+        lat,
+        lon,
+      },
+      irrigationNeeded,
+      lastUpdated: new Date().toISOString(),
     };
-    return descriptions[condition as keyof typeof descriptions] || "Unknown";
   };
 
   const getWeatherIcon = (condition: string) => {
@@ -152,6 +170,10 @@ const RealTimeWeatherCard = () => {
         return <CloudRain className="w-8 h-8 text-rain" />;
       case "clouds":
         return <Cloud className="w-8 h-8 text-sky" />;
+      case "snow":
+        return <Cloud className="w-8 h-8 text-snow" />;
+      case "storm":
+        return <CloudRain className="w-8 h-8 text-storm" />;
       default:
         return <Sun className="w-8 h-8 text-sunny" />;
     }
@@ -167,6 +189,10 @@ const RealTimeWeatherCard = () => {
         return "🌦️";
       case "clouds":
         return "🌥️";
+      case "snow":
+        return "🌨️";
+      case "storm":
+        return "⛈️";
       default:
         return "☀️";
     }
@@ -181,7 +207,7 @@ const RealTimeWeatherCard = () => {
       const locationData = await getCurrentLocation();
       setLocation(locationData);
       
-      const weatherData = await fetchWeatherData(locationData.lat, locationData.lon);
+      const weatherData = await fetchWeatherData(locationData.lat, locationData.lon, locationData);
       setWeather(weatherData);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to get location");
@@ -199,7 +225,7 @@ const RealTimeWeatherCard = () => {
     if (location && weather) {
       const interval = setInterval(async () => {
         try {
-          const updatedWeather = await fetchWeatherData(location.lat, location.lon);
+          const updatedWeather = await fetchWeatherData(location.lat, location.lon, location);
           setWeather(updatedWeather);
         } catch (err) {
           console.error("Failed to refresh weather data:", err);
@@ -246,16 +272,6 @@ const RealTimeWeatherCard = () => {
     );
   }
 
-  if (!weather) {
-    return (
-      <div className="weather-widget">
-        <div className="text-center py-6">
-          <p className="text-muted-foreground">No weather data available</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="weather-widget">
       <div className="flex items-center justify-between mb-4">
@@ -267,47 +283,47 @@ const RealTimeWeatherCard = () => {
             </h3>
             <p className="text-sm text-muted-foreground flex items-center">
               <MapPin className="w-3 h-3 mr-1" />
-              {weather.location.name}, {weather.location.country}
+              {weather.location.name}
+              {weather.location.country ? `, ${weather.location.country}` : ''}
             </p>
           </div>
         </div>
         <div className="text-right">
           <div className="flex items-center text-2xl font-bold text-foreground">
             <Thermometer className="w-6 h-6 mr-1" />
-            {weather.temperature}°C
+            {weather.temperature != null ? Math.round(weather.temperature) : "–"}°C
           </div>
-          <p className="text-xs text-muted-foreground">Feels like {weather.temperature + 2}°C</p>
+          {weather.temperature != null && (
+            <p className="text-xs text-muted-foreground">Approximate</p>
+          )}
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-3 mb-4">
+      <div className="grid grid-cols-3 gap-3 mb-4">
         <div className="text-center">
           <Droplets className="w-4 h-4 text-sky mx-auto mb-1" />
           <p className="text-xs text-muted-foreground">Humidity</p>
-          <p className="font-semibold text-sm">{weather.humidity}%</p>
+          <p className="font-semibold text-sm">{weather.humidity != null ? Math.round(weather.humidity) + '%' : '–'}</p>
         </div>
         <div className="text-center">
           <Wind className="w-4 h-4 text-primary mx-auto mb-1" />
           <p className="text-xs text-muted-foreground">Wind</p>
-          <p className="font-semibold text-sm">{weather.windSpeed} km/h</p>
+          <p className="font-semibold text-sm">{weather.windSpeed != null ? Math.round(weather.windSpeed) + ' km/h' : '–'}</p>
         </div>
-        <div className="text-center">
-          <div className="w-4 h-4 bg-earth rounded-full mx-auto mb-1"></div>
-          <p className="text-xs text-muted-foreground">Pressure</p>
-          <p className="font-semibold text-sm">{weather.pressure} hPa</p>
-        </div>
-        <div className="text-center">
-          <div className="w-4 h-4 bg-sunny rounded-full mx-auto mb-1"></div>
-          <p className="text-xs text-muted-foreground">UV Index</p>
-          <p className="font-semibold text-sm">{weather.uvIndex}</p>
-        </div>
+        {weather.pressure != null && (
+          <div className="text-center">
+            <div className="w-4 h-4 bg-earth rounded-full mx-auto mb-1"></div>
+            <p className="text-xs text-muted-foreground">Pressure</p>
+            <p className="font-semibold text-sm">{Math.round(weather.pressure)} hPa</p>
+          </div>
+        )}
       </div>
 
       <div className="flex items-center justify-between">
-        <div className="text-center flex-1">
-          <p className="text-xs text-muted-foreground mb-1">Irrigation Recommendation</p>
+        <div className="text-center flex-1  mb-2">
+          
           <span className={weather.irrigationNeeded ? "irrigation-needed" : "irrigation-not-needed"}>
-            {weather.irrigationNeeded ? "💧 Irrigation Needed" : "✅ Soil Moisture Good"}
+            {weather.irrigationNeeded ? "Irrigation Needed" : "Irrigation Not Needed"}
           </span>
         </div>
       </div>
