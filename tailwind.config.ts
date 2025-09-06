@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        primary: ['Inter', 'sans-serif'],
+        display: ['Poppins', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -22,10 +26,30 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          light: "hsl(var(--primary-light))",
+          dark: "hsl(var(--primary-dark))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+        },
+        earth: {
+          DEFAULT: "hsl(var(--earth))",
+          light: "hsl(var(--earth-light))",
+        },
+        sky: {
+          DEFAULT: "hsl(var(--sky))",
+          light: "hsl(var(--sky-light))",
+        },
+        sunny: "hsl(var(--sunny))",
+        rain: "hsl(var(--rain))",
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -46,6 +70,7 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          border: "hsl(var(--card-border))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

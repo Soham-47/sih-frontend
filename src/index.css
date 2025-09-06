@@ -1,42 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Government Agricultural Platform Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Primary Agricultural Colors */
+    --background: 34 40% 97%;
+    --foreground: 150 30% 15%;
 
+    /* Government Green Palette */
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 142 76% 45%;
+    --primary-dark: 142 76% 28%;
+
+    /* Earth Tones */
+    --secondary: 45 25% 88%;
+    --secondary-foreground: 150 30% 15%;
+    --earth: 35 35% 65%;
+    --earth-light: 35 35% 75%;
+
+    /* Weather Accent Colors */
+    --sky: 200 95% 55%;
+    --sky-light: 200 95% 65%;
+    --sunny: 48 100% 65%;
+    --rain: 220 60% 50%;
+
+    /* UI Elements */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 150 30% 15%;
+    --card-border: 142 20% 85%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --muted: 45 25% 94%;
+    --muted-foreground: 150 15% 45%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --accent: 142 50% 92%;
+    --accent-foreground: 150 30% 20%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --border: 142 20% 88%;
+    --input: 0 0% 100%;
+    --ring: 142 76% 36%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Status Colors */
+    --success: 120 100% 35%;
+    --success-foreground: 0 0% 98%;
+    --warning: 45 100% 50%;
+    --warning-foreground: 0 0% 15%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-earth: linear-gradient(135deg, hsl(var(--earth)), hsl(var(--earth-light)));
+    --gradient-sky: linear-gradient(135deg, hsl(var(--sky)), hsl(var(--sky-light)));
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--sunny)), hsl(var(--earth)));
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Shadows */
+    --shadow-soft: 0 2px 10px -2px hsl(var(--primary) / 0.1);
+    --shadow-medium: 0 4px 20px -4px hsl(var(--primary) / 0.15);
+    --shadow-strong: 0 8px 30px -8px hsl(var(--primary) / 0.2);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Border Radius */
+    --radius: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
 
-    --radius: 0.5rem;
+    /* Typography */
+    --font-primary: 'Inter', sans-serif;
+    --font-display: 'Poppins', sans-serif;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +135,57 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-primary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Government Card Style */
+  .gov-card {
+    @apply bg-card border border-card-border rounded-lg shadow-soft;
+  }
+
+  .gov-card-header {
+    @apply bg-gradient-to-r from-primary to-primary-light text-primary-foreground p-4 rounded-t-lg;
+  }
+
+  /* Weather Widget */
+  .weather-widget {
+    @apply bg-gradient-to-br from-sky/10 to-sky-light/10 border border-sky/20 rounded-xl p-4;
+  }
+
+  /* Feature Buttons */
+  .feature-btn {
+    @apply bg-card hover:bg-accent border border-card-border rounded-xl p-6 transition-all duration-200 hover:shadow-medium hover:scale-105;
+  }
+
+  .feature-btn-icon {
+    @apply w-12 h-12 mx-auto mb-3 text-primary;
+  }
+
+  /* Status Indicators */
+  .status-success {
+    @apply bg-success/10 text-success border border-success/20 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-warning {
+    @apply bg-warning/10 text-warning border border-warning/20 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-info {
+    @apply bg-sky/10 text-sky border border-sky/20 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  /* Irrigation Status */
+  .irrigation-needed {
+    @apply bg-gradient-to-r from-sky to-sky-light text-white px-4 py-2 rounded-lg font-medium;
+  }
+
+  .irrigation-not-needed {
+    @apply bg-gradient-to-r from-success to-primary text-white px-4 py-2 rounded-lg font-medium;
   }
 }
