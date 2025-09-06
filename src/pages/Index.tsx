@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Header from "@/components/Header";
-import WeatherCard from "@/components/WeatherCard";
+import ImprovedHeader, { translations } from "@/components/ImprovedHeader";
+import RealTimeWeatherCard from "@/components/RealTimeWeatherCard";
 import FeatureGrid from "@/components/FeatureGrid";
 import PredictionCard from "@/components/PredictionCard";
 import { ArrowLeft } from "lucide-react";
@@ -63,12 +63,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <ImprovedHeader />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Weather Card - Always visible at top */}
         <div className="mb-8">
-          <WeatherCard />
+          <RealTimeWeatherCard />
         </div>
 
         {activeFeature ? (
