@@ -7,6 +7,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
+  console.log("Index component is rendering");
   const [activeFeature, setActiveFeature] = useState<string | null>(null);
 
   const handleFeatureClick = (featureId: string) => {
