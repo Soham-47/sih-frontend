@@ -5,8 +5,10 @@ import FeatureGrid from "@/components/FeatureGrid";
 import PredictionCard from "@/components/PredictionCard";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
+   const { t } = useTranslation();
   console.log("Index component is rendering");
   const [activeFeature, setActiveFeature] = useState<string | null>(null);
 
@@ -25,36 +27,56 @@ const Index = () => {
       case "fertilizer":
         return (
           <div className="gov-card p-6">
-            <h2 className="font-display font-bold text-2xl text-foreground mb-4">🌱 Fertilizer Recommendations</h2>
-            <p className="text-muted-foreground">Smart fertilizer suggestions based on your soil and weather conditions coming soon...</p>
+            <h2 className="font-display font-bold text-2xl text-foreground mb-4">
+              🌱 {t("tool.fertilizer.title")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("tool.fertilizer.desc")}
+            </p>
           </div>
         );
       case "pest-control":
         return (
           <div className="gov-card p-6">
-            <h2 className="font-display font-bold text-2xl text-foreground mb-4">🐛 Pest Detection & Control</h2>
-            <p className="text-muted-foreground">AI-powered pest identification and treatment recommendations coming soon...</p>
+            <h2 className="font-display font-bold text-2xl text-foreground mb-4">
+              🐛 {t("tool.pest_detection.title")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("tool.pest_detection.desc")}
+            </p>
           </div>
         );
       case "ai-assistant":
         return (
           <div className="gov-card p-6">
-            <h2 className="font-display font-bold text-2xl text-foreground mb-4">🤖 AI Farming Assistant</h2>
-            <p className="text-muted-foreground">Chat with our AI assistant for instant farming advice coming soon...</p>
+            <h2 className="font-display font-bold text-2xl text-foreground mb-4">
+              🤖{t("tool.ai_assistant.title")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("tool.ai_assistant.desc")}
+            </p>
           </div>
         );
       case "reports":
         return (
           <div className="gov-card p-6">
-            <h2 className="font-display font-bold text-2xl text-foreground mb-4">📊 Farm Analytics & Reports</h2>
-            <p className="text-muted-foreground">Detailed analytics and progress tracking coming soon...</p>
+            <h2 className="font-display font-bold text-2xl text-foreground mb-4">
+              📊 {t("tool.farm_reports.title")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("tool.farm_reports.desc")}
+            </p>
           </div>
         );
       case "soil-health":
         return (
           <div className="gov-card p-6">
-            <h2 className="font-display font-bold text-2xl text-foreground mb-4">🧪 Soil Health Analysis</h2>
-            <p className="text-muted-foreground">Comprehensive soil testing and health monitoring coming soon...</p>
+            <h2 className="font-display font-bold text-2xl text-foreground mb-4">
+              🧪 {t("tool.soil_analysis.title")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("tool.soil_analysis.desc")}
+            </p>
           </div>
         );
       default:
@@ -65,18 +87,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <ImprovedHeader />
-      
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeFeature ? (
           <div className="space-y-6">
-            <Button 
+            <Button
               onClick={handleBackToHome}
               variant="outline"
               className="mb-4"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
+              {t("back_to_home")}
             </Button>
             {renderActiveFeature()}
           </div>
@@ -89,23 +110,24 @@ const Index = () => {
             {/* Welcome Section */}
             <div className="text-center py-8">
               <h1 className="font-display font-bold text-4xl text-foreground mb-4">
-                Welcome to KisanAI Platform
+                {t("welcome.title")}
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Empowering farmers with AI-driven insights for better crop yields, 
-                smart irrigation, and sustainable farming practices.
+                {t("welcome.description")}
               </p>
               <div className="flex justify-center space-x-4 mt-6">
-                <div className="status-success">🇮🇳 Government Certified</div>
-                <div className="status-info">🤖 AI Powered</div>
-                <div className="status-success">🌾 Farmer Friendly</div>
+                <div className="status-success">{t("tags.govt_certified")}</div>
+                <div className="status-info">🤖 {t("tags.ai_powered")}</div>
+                <div className="status-success">
+                  🌾 {t("tags.farmer_friendly")}
+                </div>
               </div>
             </div>
 
             {/* Feature Grid */}
             <div>
               <h2 className="font-display font-bold text-2xl text-foreground mb-6 text-center">
-                Smart Farming Tools
+                {t("tools.heading")}
               </h2>
               <FeatureGrid onFeatureClick={handleFeatureClick} />
             </div>
@@ -119,8 +141,8 @@ const Index = () => {
       <footer className="bg-card border-t border-card-border mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center text-muted-foreground">
-            <p>© 2024 KisanAI Platform - Ministry of Agriculture & Farmers Welfare</p>
-            <p className="text-sm mt-2">Powered by Artificial Intelligence for Indian Agriculture</p>
+            <p>{t("footer.copyright")}</p>
+            <p className="text-sm mt-2">{t("footer.powered_by")}</p>
           </div>
         </div>
       </footer>

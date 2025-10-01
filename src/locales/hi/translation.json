@@ -1,0 +1,133 @@
+{
+  "weather": {
+    "humidity": "आर्द्रता",
+    "wind": "हवा",
+    "pressure": "दबाव",
+    "temperature": "अनुमानित",
+    "irrigation_needed": "सिंचाई आवश्यक",
+    "last_update": "अंतिम अपडेट",
+    "refresh": "रीफ़्रेश"
+  },
+
+  "prediction_results": {
+    "title": "अंदाज परिणाम",
+    "unit": "टन/हेक्टेयर",
+    "expected_yield": "अपेक्षित उत्पादन",
+    "confidence": "विश्वसनीयता",
+    "influencing_factors": "प्रभावक कारक:",
+    "weather": "मौसम",
+    "soil_quality": "मृदा गुणवत्ता",
+    "irrigation": "सिंचाई",
+    "ai_recommendations": "AI सिफारशी:"
+  },
+  "title": "स्मार्ट कृषि मंच",
+  "subtitle": "आत्मनिर्भर कृषि",
+  "weather_des": {
+    "clear_sky": "साफ़ आकाश",
+    "clear_night": "साफ़ रात",
+    "mainly_clear": "अधिकतर साफ़",
+    "partly_cloudy": "आंशिक रूप से बादल",
+    "overcast": "पूरा बादल",
+    "fog": "कोहरा",
+    "light_drizzle": "हल्की बूंदाबांदी",
+    "moderate_drizzle": "मध्यम बूंदाबांदी",
+    "dense_drizzle": "घनी बूंदाबांदी",
+    "slight_rain": "हल्की बारिश",
+    "moderate_rain": "मध्यम बारिश",
+    "heavy_rain": "तेज़ बारिश",
+    "rain_showers": "बारिश की बौछारें",
+    "heavy_rain_showers": "तेज़ बारिश की बौछारें",
+    "violent_rain_showers": "भीषण बारिश की बौछारें",
+    "slight_snow": "हल्की बर्फ़",
+    "moderate_snow": "मध्यम बर्फ़",
+    "heavy_snow": "तेज़ बर्फ़",
+    "thunderstorm": "आंधी",
+    "thunderstorm_hail": "आंधी के साथ ओला",
+    "thunderstorm_heavy_hail": "आंधी के साथ भारी ओला",
+    "unknown": "अज्ञात"
+  },
+  "back_to_home": "मुख्य पृष्ठ पर वापस जाएँ",
+  "tool": {
+    "fertilizer": {
+      "title": "खाद की सिफारिशें",
+      "desc": "आपकी मिट्टी और मौसम की स्थिति के आधार पर स्मार्ट खाद सुझाव जल्द आ रहे हैं..."
+    },
+    "pest_detection": {
+      "title": "कीट पहचान और नियंत्रण",
+      "desc": "AI-संचालित कीट पहचान और उपचार सिफारिशें जल्द आ रही हैं..."
+    },
+    "ai_assistant": {
+      "title": "AI कृषि सहायक",
+      "desc": "त्वरित कृषि सलाह के लिए हमारे AI सहायक से चैट करें..."
+    },
+    "farm_reports": {
+      "title": "फार्म विश्लेषण और रिपोर्ट",
+      "desc": "विस्तृत विश्लेषण और प्रगति ट्रैकिंग जल्द आ रही है..."
+    },
+    "soil_analysis": {
+      "title": "मृदा स्वास्थ्य विश्लेषण",
+      "desc": "व्यापक मिट्टी परीक्षण और स्वास्थ्य निगरानी जल्द आ रही है..."
+    }
+  },
+  "welcome": {
+    "title": "आत्मनिर्भर कृषि प्लेटफ़ॉर्म में आपका स्वागत है",
+    "description": "किसानों को बेहतर फसल उत्पादन, स्मार्ट सिंचाई और सतत खेती के लिए AI-आधारित जानकारी से सशक्त बनाना।"
+  },
+  "tags": {
+    "govt_certified": "सरकारी प्रमाणित",
+    "ai_powered": "AI संचालित",
+    "farmer_friendly": "किसान हितैषी"
+  },
+  "tools": {
+    "heading": "स्मार्ट खेती उपकरण",
+    "predict_yield": {
+      "title": "उपज का अनुमान",
+      "desc": "AI आधारित फसल उपज अनुमान"
+    },
+    "fertilizer_guide": {
+      "title": "उर्वरक मार्गदर्शिका",
+      "desc": "स्मार्ट उर्वरक सिफारिशें"
+    },
+    "pest_detection": {
+      "title": "कीट पहचान",
+      "desc": "कीट पहचानें और समाधान पाएं"
+    },
+    "ai_assistant": {
+      "title": "AI सहायक",
+      "desc": "किसी भी समय खेती से संबंधित प्रश्न पूछें"
+    },
+    "farm_reports": {
+      "title": "फार्म रिपोर्ट्स",
+      "desc": "अपनी खेती की प्रगति ट्रैक करें"
+    },
+    "soil_analysis": {
+      "title": "मिट्टी विश्लेषण",
+      "desc": "मिट्टी की सेहत के आँकड़े देखें"
+    }
+  },
+  "crop_yield": {
+    "title": "एआई फसल उत्पादन पूर्वानुमान",
+    "nitrogen": "नाइट्रोजन (N)",
+    "nitrogen_placeholder": "नाइट्रोजन मान दर्ज करें",
+    "phosphorus": "फास्फोरस (P)",
+    "phosphorus_placeholder": "फास्फोरस मान दर्ज करें",
+    "potassium": "पोटेशियम (K)",
+    "potassium_placeholder": "पोटेशियम मान दर्ज करें",
+    "state": "राज्य",
+    "state_placeholder": "अपना राज्य चुनें",
+    "rainfall": "वर्षा (मिमी)",
+    "rainfall_placeholder": "वर्षा मिमी में दर्ज करें",
+    "area": "क्षेत्रफल (हेक्टेयर)",
+    "area_placeholder": "क्षेत्रफल हेक्टेयर में दर्ज करें",
+    "predict_button": "एआई से उपज का अनुमान लगाएं"
+  },
+  "Approximate": "अनुमानित",
+  "Enable Location": "स्थान सक्षम करें",
+  "Please allow location access to get real-time weather data for better farming insights.": "बेहतर खेती के सुझावों के लिए वास्तविक समय के मौसम डेटा के लिए कृपया स्थान पहुँच की अनुमति दें।",
+  "Location Access Needed": "स्थान पहुँच आवश्यक है",
+  "Getting your location and weather...": "आपका स्थान और मौसम प्राप्त किया जा रहा है...",
+  "footer": {
+    "copyright": "© 2024 किसानAI प्लेटफ़ॉर्म - कृषि एवं किसान कल्याण मंत्रालय",
+    "powered_by": "भारतीय कृषि के लिए कृत्रिम बुद्धिमत्ता द्वारा संचालित"
+  }
+}

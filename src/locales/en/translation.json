@@ -1,0 +1,132 @@
+{
+  "weather": {
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "pressure": "Pressure",
+    "temperature": "Approximate",
+    "irrigation_needed": "Irrigation Needed",
+    "last_update": "Last update",
+    "refresh": "Refresh"
+  },
+ "weather_des": {
+    "clear_sky": "Clear sky",
+    "clear_night": "Clear night",
+    "mainly_clear": "Mainly clear",
+    "partly_cloudy": "Partly cloudy",
+    "overcast": "Overcast",
+    "fog": "Fog",
+    "light_drizzle": "Light drizzle",
+    "moderate_drizzle": "Moderate drizzle",
+    "dense_drizzle": "Dense drizzle",
+    "slight_rain": "Slight rain",
+    "moderate_rain": "Moderate rain",
+    "heavy_rain": "Heavy rain",
+    "rain_showers": "Rain showers",
+    "heavy_rain_showers": "Heavy rain showers",
+    "violent_rain_showers": "Violent rain showers",
+    "slight_snow": "Slight snow",
+    "moderate_snow": "Moderate snow",
+    "heavy_snow": "Heavy snow",
+    "thunderstorm": "Thunderstorm",
+    "thunderstorm_hail": "Thunderstorm with hail",
+    "thunderstorm_heavy_hail": "Thunderstorm with heavy hail",
+    "unknown": "Unknown"
+  },
+  "title": "Smart Agriculture Platform",
+  "subtitle": "Atmanirbhar Krishi",
+  "welcome": {
+    "title": "Welcome to Atmanirbhar Krishi Platform",
+    "description": "Empowering farmers with AI-driven insights for better crop yields, smart irrigation, and sustainable farming practices."
+  },
+  "tags": {
+    "govt_certified": "Government Certified",
+    "ai_powered": "AI Powered",
+    "farmer_friendly": "Farmer Friendly"
+  },
+  "tools": {
+    "heading": "Smart Farming Tools",
+    "predict_yield": {
+      "title": "Predict Yield",
+      "desc": "AI-powered crop yield predictions"
+    },
+    "fertilizer_guide": {
+      "title": "Fertilizer Guide",
+      "desc": "Smart fertilization recommendations"
+    },
+    "pest_detection": {
+      "title": "Pest Detection",
+      "desc": "Identify pests and get solutions"
+    },
+    "ai_assistant": {
+      "title": "AI Assistant",
+      "desc": "Ask farming questions anytime"
+    },
+    "farm_reports": {
+      "title": "Farm Reports",
+      "desc": "Track your farming progress"
+    },
+    "soil_analysis": {
+      "title": "Soil Analysis",
+      "desc": "Monitor soil health metrics"
+    }
+  },
+  "crop_yield": {
+    "title": "AI Crop Yield Prediction",
+    "nitrogen": "Nitrogen (N)",
+    "nitrogen_placeholder": "Enter Nitrogen value",
+    "phosphorus": "Phosphorus (P)",
+    "phosphorus_placeholder": "Enter Phosphorus value",
+    "potassium": "Potassium (K)",
+    "potassium_placeholder": "Enter Potassium value",
+    "state": "State",
+    "state_placeholder": "Select your state",
+    "rainfall": "Rainfall (mm)",
+    "rainfall_placeholder": "Enter rainfall in mm",
+    "area": "Area (hectares)",
+    "area_placeholder": "Enter area in hectares",
+    "predict_button": "Predict Yield with AI"
+  },
+  "Approximate": "Approximate",
+  "Enable Location": "Enable Location",
+  "Please allow location access to get real-time weather data for better farming insights.": "Please allow location access to get real-time weather data for better farming insights.",
+  "Location Access Needed": "Location Access Needed",
+  "Getting your location and weather...": "Getting your location and weather...",
+  "footer": {
+    "copyright": "© 2024 KisanAI Platform - Ministry of Agriculture & Farmers Welfare",
+    "powered_by": "Powered by Artificial Intelligence for Indian Agriculture"
+  },
+   "back_to_home": "Back To Home",
+   "tool": {
+      "fertilizer": {
+        "title": "Fertilizer Recommendations",
+        "desc": "Smart fertilizer suggestions based on your soil and weather conditions coming soon..."
+      },
+      "pest_detection": {
+        "title": "Pest Detection & Control",
+        "desc": "AI-powered pest identification and treatment recommendations coming soon..."
+      },
+      "ai_assistant": {
+        "title": "AI Farming Assistant",
+        "desc": "Chat with our AI assistant for instant farming advice coming soon..."
+      },
+      "farm_reports": {
+        "title": "Farm Analytics & Reports",
+        "desc": "Detailed analytics and progress tracking coming soon..."
+      },
+      "soil_analysis": {
+        "title": "Soil Health Analysis",
+        "desc": "Comprehensive soil testing and health monitoring coming soon..."
+      }
+    },
+  "prediction_results": {
+    "title": "Prediction Results",
+    "unit": "tons/hectare",
+    "expected_yield": "Expected Yield",
+    "confidence": "Confidence",
+    "influencing_factors": "Influencing Factors:",
+    "weather": "Weather",
+    "soil_quality": "Soil Quality",
+    "irrigation": "Irrigation",
+    "ai_recommendations": "AI Recommendations:"
+  }
+}

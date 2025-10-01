@@ -1,0 +1,156 @@
+{
+  "weather": {
+    "humidity": "ఆర్ద్రత",
+    "wind": "గాలి",
+    "pressure": "ఒత్తిడి",
+    "temperature": "సుమారు",
+    "irrigation_needed": "పారుదల అవసరం",
+    "last_update": "చివరి నవీకరణ",
+    "refresh": "రిఫ్రెష్"
+  },
+
+  "welcome": {
+    "title": "ఆత్మనిర్భర్ కృషి వేదికకు స్వాగతం",
+    "description": "మెరుగైన పంట దిగుబడులు, స్మార్ట్ పారుదల మరియు స్థిరమైన వ్యవసాయ పద్ధతుల కోసం AI ఆధారిత సమాచారంతో రైతులను శక్తివంతం చేయడం."
+  },
+  "tags": {
+    "govt_certified": "ప్రభుత్వ ధృవీకరణ",
+    "ai_powered": "AI ఆధారితం",
+    "farmer_friendly": "రైతులకు అనుకూలం"
+  },
+  "crop_yield": {
+    "title": "AI పంట దిగుబడి అంచనా",
+    "nitrogen": "నైట్రోజన్ (N)",
+    "nitrogen_placeholder": "నైట్రోజన్ విలువను నమోదు చేయండి",
+    "phosphorus": "ఫాస్ఫరస్ (P)",
+    "phosphorus_placeholder": "ఫాస్ఫరస్ విలువను నమోదు చేయండి",
+    "potassium": "పోటాషియం (K)",
+    "potassium_placeholder": "పోటాషియం విలువను నమోదు చేయండి",
+    "state": "రాష్ట్రం",
+    "state_placeholder": "మీ రాష్ట్రాన్ని ఎంచుకోండి",
+    "rainfall": "వర్షపాతం (mm)",
+    "rainfall_placeholder": "వర్షపాతం mm లో నమోదు చేయండి",
+    "area": "విస్తీర్ణం (హెక్టార్లు)",
+    "area_placeholder": "విస్తీర్ణాన్ని హెక్టార్లలో నమోదు చేయండి",
+    "predict_button": "AI తో దిగుబడి అంచనా"
+  },
+  "back_to_home": "హోమ్‌కు తిరిగి వెళ్లండి",
+"title": "స్మార్ట్ వ్యవసాయ వేదిక",
+  "subtitle": "ఆత్మనిర్భర్ వ్యవసాయం",
+  "weather_des": {
+    "clear_sky": "స్పష్టమైన ఆకాశం",
+    "clear_night": "స్పష్టమైన రాత్రి",
+    "mainly_clear": "అధికంగా స్పష్టంగా",
+    "partly_cloudy": "కొంతమంది మేఘాలు",
+    "overcast": "పూర్తిగా మేఘావృతం",
+    "fog": "మంజు",
+    "light_drizzle": "లేత జల్లులు",
+    "moderate_drizzle": "మధ్యస్థ జల్లులు",
+    "dense_drizzle": "పెద్దగా జల్లులు",
+    "slight_rain": "లేత వర్షం",
+    "moderate_rain": "మధ్యస్థ వర్షం",
+    "heavy_rain": "భారీ వర్షం",
+    "rain_showers": "వర్షపు కొట్టింపులు",
+    "heavy_rain_showers": "భారీ వర్షపు కొట్టింపులు",
+    "violent_rain_showers": "తీవ్ర వర్షపు కొట్టింపులు",
+    "slight_snow": "లేత మంచు",
+    "moderate_snow": "మధ్యస్థ మంచు",
+    "heavy_snow": "భారీ మంచు",
+    "thunderstorm": "మెరుపు గాలివేగం",
+    "thunderstorm_hail": "మెరుపు తో పిడుగు",
+    "thunderstorm_heavy_hail": "మెరుపు తో భారీ పిడుగు",
+    "unknown": "తెలియని"
+  },
+  "tool": {
+    "fertilizer": {
+      "title": "ఎరువుల సిఫార్సులు",
+      "desc": "మీ మట్టి మరియు వాతావరణ పరిస్థితుల ఆధారంగా స్మార్ట్ ఎరువుల సిఫార్సులు త్వరలో వస్తాయి..."
+    },
+    "pest_detection": {
+      "title": "కీటకాల గుర్తింపు & నియంత్రణ",
+      "desc": "AI ఆధారిత కీటకాల గుర్తింపు మరియు చికిత్సా సిఫార్సులు త్వరలో వస్తాయి..."
+    },
+    "ai_assistant": {
+      "title": "AI వ్యవసాయ సహాయకుడు",
+      "desc": "తక్షణ వ్యవసాయ సలహా కోసం మా AI సహాయకుడితో చాట్ చేయండి..."
+    },
+    "farm_reports": {
+      "title": "ఫారం విశ్లేషణ & నివేదికలు",
+      "desc": "వివరణాత్మక విశ్లేషణ మరియు పురోగతి ట్రాకింగ్ త్వరలో వస్తుంది..."
+    },
+    "soil_analysis": {
+      "title": "మట్టి ఆరోగ్య విశ్లేషణ",
+      "desc": "విస్తృతమైన మట్టి పరీక్ష మరియు ఆరోగ్య పర్యవేక్షణ త్వరలో వస్తుంది..."
+    }
+  },
+  "prediction_results": {
+    "title": "అంచనా ఫలితాలు",
+    "unit": "టన్/హెక్టేర్",
+    "expected_yield": "ఎక్స్పెక్టెడ్ ఉత్పత్తి",
+    "confidence": "నమ్మకం",
+    "influencing_factors": "ప్రభావక ఫ్యాక్టర్లు:",
+    "weather": "వాతావరణం",
+    "soil_quality": "మట్టిరంగం",
+    "irrigation": "పంపిణీ",
+    "ai_recommendations": "AI సిఫారసులు:"
+  },
+  "Approximate": "సుమారు",
+  "Enable Location": "స్థానం సక్రియం చేయండి",
+  "Please allow location access to get real-time weather data for better farming insights.": "మంచి వ్యవసాయ సూచనల కోసం నిజకాలంలో వాతావరణ డేటా పొందడానికి దయచేసి స్థానానికి అనుమతి ఇవ్వండి.",
+  "Location Access Needed": "స్థానానికి ప్రవేశం అవసరం",
+  "Getting your location and weather...": "మీ స్థానం మరియు వాతావరణాన్ని పొందుతున్నాం...",
+  "tools": {
+    "heading": "స్మార్ట్ వ్యవసాయ పరికరాలు",
+    "predict_yield": {
+      "title": "దిగుబడి అంచనా",
+      "desc": "AI ఆధారిత పంట దిగుబడి అంచనా"
+    },
+    "fertilizer_guide": {
+      "title": "ఎరువుల మార్గదర్శకుడు",
+      "desc": "స్మార్ట్ ఎరువుల సిఫార్సులు"
+    },
+    "pest_detection": {
+      "title": "పురుగుల గుర్తింపు",
+      "desc": "పురుగులను గుర్తించి పరిష్కారాలను పొందండి"
+    },
+    "ai_assistant": {
+      "title": "AI సహాయకుడు",
+      "desc": "ఎప్పుడైనా వ్యవసాయ ప్రశ్నలు అడగండి"
+    },
+    "farm_reports": {
+      "title": "ఫార్మ్ నివేదికలు",
+      "desc": "మీ వ్యవసాయ పురోగతిని ట్రాక్ చేయండి"
+    },
+    "soil_analysis": {
+      "title": "మట్టి విశ్లేషణ",
+      "desc": "మట్టి ఆరోగ్య పరామితులను పరిశీలించండి"
+    }
+  },
+  "description": {
+    "Clear sky": "తెల్ల ఆకాశం",
+    "Mainly clear": "ప్రధానంగా తెల్ల ఆకాశం",
+    "Partly cloudy": "పాక్షికంగా మేఘావృతం",
+    "Overcast": "మేఘావృతం",
+    "Fog": "మబ్బు",
+    "Depositing rime fog": "మంచుతో నిండిన మబ్బు",
+    "Light drizzle": "తేలికపాటి తుమ్ములు",
+    "Moderate drizzle": "మధ్యస్థ తుమ్ములు",
+    "Dense drizzle": "గాఢమైన తుమ్ములు",
+    "Slight rain": "తేలిక వర్షం",
+    "Moderate rain": "మధ్యస్థ వర్షం",
+    "Heavy rain": "కనమారిన వర్షం",
+    "Rain showers": "వర్షపు షవర్‌లు",
+    "Heavy rain showers": "కనమారిన వర్షపు షవర్‌లు",
+    "Violent rain showers": "తీవ్ర వర్షపు షవర్‌లు",
+    "Slight snow": "తేలికపాటి మంచు",
+    "Moderate snow": "మధ్యస్థ మంచు",
+    "Heavy snow": "కనమారిన మంచు",
+    "Thunderstorm": "మబ్బుల కురుపుతో తుపాకి",
+    "Thunderstorm with hail": "మంచు గల తుపాకి",
+    "Thunderstorm with heavy hail": "తీవ్ర మంచు గల తుపాకి"
+  },
+  "footer": {
+    "copyright": "© 2024 కిసాన్AI ప్లాట్‌ఫారమ్ - వ్యవసాయ & రైతు సంక్షేమ మంత్రిత్వ శాఖ",
+    "powered_by": "భారతీయ వ్యవసాయం కోసం కృత్రిమ మేధస్సుతో నడపబడుతుంది"
+  }
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { CloudRain, Sun, Cloud, Droplets, Thermometer, Wind, MapPin, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 interface WeatherData {
   temperature: number | null;
@@ -28,6 +29,7 @@ interface LocationData {
 }
 
 const RealTimeWeatherCard = () => {
+  const { t } = useTranslation();
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [location, setLocation] = useState<LocationData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -100,29 +102,52 @@ const RealTimeWeatherCard = () => {
   const describeWeather = (code: number | null, isDay: boolean | null) => {
     const day = isDay ?? true;
     const map: Record<number, { condition: string; description: string }> = {
-      0: { condition: day ? "clear" : "clear", description: day ? "Clear sky" : "Clear night" },
-      1: { condition: "clear", description: "Mainly clear" },
-      2: { condition: "clouds", description: "Partly cloudy" },
-      3: { condition: "clouds", description: "Overcast" },
-      45: { condition: "clouds", description: "Fog" },
-      48: { condition: "clouds", description: "Depositing rime fog" },
-      51: { condition: "drizzle", description: "Light drizzle" },
-      53: { condition: "drizzle", description: "Moderate drizzle" },
-      55: { condition: "drizzle", description: "Dense drizzle" },
-      61: { condition: "rain", description: "Slight rain" },
-      63: { condition: "rain", description: "Moderate rain" },
-      65: { condition: "rain", description: "Heavy rain" },
-      80: { condition: "rain", description: "Rain showers" },
-      81: { condition: "rain", description: "Heavy rain showers" },
-      82: { condition: "rain", description: "Violent rain showers" },
-      71: { condition: "snow", description: "Slight snow" },
-      73: { condition: "snow", description: "Moderate snow" },
-      75: { condition: "snow", description: "Heavy snow" },
-      95: { condition: "storm", description: "Thunderstorm" },
-      96: { condition: "storm", description: "Thunderstorm with hail" },
-      99: { condition: "storm", description: "Thunderstorm with heavy hail" },
+      0: {
+        condition: day ? "clear" : "clear",
+        description: day
+          ? t("weather_des.clear_sky")
+          : t("weather_des.clear_night"),
+      },
+      1: { condition: "clear", description: t("weather_des.mainly_clear") },
+      2: { condition: "clouds", description: t("weather_des.partly_cloudy") },
+      3: { condition: "clouds", description: t("weather_des.overcast") },
+      45: { condition: "clouds", description: t("weather_des.fog") },
+      48: { condition: "clouds", description: t("weather_des.fog") },
+      51: { condition: "drizzle", description: t("weather_des.light_drizzle") },
+      53: {
+        condition: "drizzle",
+        description: t("weather_des.modarate_drizzle"),
+      },
+      55: { condition: "drizzle", description: t("weather_des.dense_drizzle") },
+      61: { condition: "rain", description: t("weather_des.slight_rain") },
+      63: { condition: "rain", description: t("weather_des.modarate_rain") },
+      65: { condition: "rain", description: t("weather_des.heavy_rain") },
+      80: { condition: "rain", description: t("weather_des.rain_showers") },
+      81: {
+        condition: "rain",
+        description: t("weather_des.heavy_rain_showers"),
+      },
+      82: {
+        condition: "rain",
+        description: t("weather_des.violent_rain_showers"),
+      },
+
+      71: { condition: "snow", description: t("weather_des.slight_snow") },
+      73: { condition: "snow", description: t("weather_des.moderate_snow") },
+      75: { condition: "snow", description: t("weather_des.heavy_snow") },
+      95: { condition: "storm", description: t("weather_des.thunderstorm") },
+      96: {
+        condition: "storm",
+        description: t("weather_des.thunderstorm_hail"),
+      },
+      99: { condition: "storm", description: t("weather_des.thunderstorm_heavy_hail") },
     };
-    return map[code ?? -1] || { condition: "clear", description: "Unknown" };
+    return (
+      map[code ?? -1] || {
+        condition: "clear",
+        description: t("weather_des.unknown"),
+      }
+    );
   };
 
   // Fetch weather data from Open-Meteo
@@ -241,7 +266,7 @@ const RealTimeWeatherCard = () => {
       <div className="weather-widget">
         <div className="flex items-center justify-center py-8">
           <div className="animate-spin w-6 h-6 border-2 border-primary border-t-transparent rounded-full mr-3"></div>
-          <span className="text-muted-foreground">Getting your location and weather...</span>
+          <span className="text-muted-foreground">{t("Getting your location and weather...")}</span>
         </div>
       </div>
     );
@@ -252,10 +277,10 @@ const RealTimeWeatherCard = () => {
       <div className="weather-widget">
         <div className="text-center py-6">
           <AlertTriangle className="w-8 h-8 text-warning mx-auto mb-3" />
-          <h3 className="font-semibold text-foreground mb-2">Location Access Needed</h3>
+          <h3 className="font-semibold text-foreground mb-2">{t("Location Access Needed")}</h3>
           <p className="text-sm text-muted-foreground mb-4">
             {permissionDenied 
-              ? "Please allow location access to get real-time weather data for better farming insights."
+              ? t("Please allow location access to get real-time weather data for better farming insights.")
               : error
             }
           </p>
@@ -265,7 +290,7 @@ const RealTimeWeatherCard = () => {
             size="sm"
           >
             <MapPin className="w-4 h-4 mr-2" />
-            Enable Location
+            {t("Enable Location")}
           </Button>
         </div>
       </div>
@@ -281,20 +306,25 @@ const RealTimeWeatherCard = () => {
             <h3 className="font-display font-semibold text-lg text-foreground">
               {getConditionEmoji(weather.condition)} {weather.description}
             </h3>
-            <p className="text-sm text-muted-foreground flex items-center">
+            {/* getting some error  here */}
+
+            {/* <p className="text-sm text-muted-foreground flex items-center">
               <MapPin className="w-3 h-3 mr-1" />
               {weather.location.name}
-              {weather.location.country ? `, ${weather.location.country}` : ''}
-            </p>
+              {weather.location.country ? `, ${weather.location.country}` : ""}
+            </p> */}
           </div>
         </div>
         <div className="text-right">
           <div className="flex items-center text-2xl font-bold text-foreground">
             <Thermometer className="w-6 h-6 mr-1" />
-            {weather.temperature != null ? Math.round(weather.temperature) : "–"}°C
+            {weather.temperature != null
+              ? Math.round(weather.temperature)
+              : "–"}
+            °C
           </div>
           {weather.temperature != null && (
-            <p className="text-xs text-muted-foreground">Approximate</p>
+            <p className="text-xs text-muted-foreground">{t("Approximate")}</p>
           )}
         </div>
       </div>
@@ -302,41 +332,63 @@ const RealTimeWeatherCard = () => {
       <div className="grid grid-cols-3 gap-3 mb-4">
         <div className="text-center">
           <Droplets className="w-4 h-4 text-sky mx-auto mb-1" />
-          <p className="text-xs text-muted-foreground">Humidity</p>
-          <p className="font-semibold text-sm">{weather.humidity != null ? Math.round(weather.humidity) + '%' : '–'}</p>
+          <p className="text-xs text-muted-foreground">
+            {t("weather.humidity")}
+          </p>
+          <p className="font-semibold text-sm">
+            {weather.humidity != null
+              ? Math.round(weather.humidity) + "%"
+              : "–"}
+          </p>
         </div>
         <div className="text-center">
           <Wind className="w-4 h-4 text-primary mx-auto mb-1" />
-          <p className="text-xs text-muted-foreground">Wind</p>
-          <p className="font-semibold text-sm">{weather.windSpeed != null ? Math.round(weather.windSpeed) + ' km/h' : '–'}</p>
+          <p className="text-xs text-muted-foreground">{t("weather.wind")}</p>
+          <p className="font-semibold text-sm">
+            {weather.windSpeed != null
+              ? Math.round(weather.windSpeed) + " km/h"
+              : "–"}
+          </p>
         </div>
         {weather.pressure != null && (
           <div className="text-center">
             <div className="w-4 h-4 bg-earth rounded-full mx-auto mb-1"></div>
-            <p className="text-xs text-muted-foreground">Pressure</p>
-            <p className="font-semibold text-sm">{Math.round(weather.pressure)} hPa</p>
+            <p className="text-xs text-muted-foreground">
+              {t("weather.pressure")}
+            </p>
+            <p className="font-semibold text-sm">
+              {Math.round(weather.pressure)} hPa
+            </p>
           </div>
         )}
       </div>
 
       <div className="flex items-center justify-between">
         <div className="text-center flex-1  mb-2">
-          
-          <span className={weather.irrigationNeeded ? "irrigation-needed" : "irrigation-not-needed"}>
-            {weather.irrigationNeeded ? "Irrigation Needed" : "Irrigation Not Needed"}
+          <span
+            className={
+              weather.irrigationNeeded
+                ? "irrigation-needed"
+                : "irrigation-not-needed"
+            }
+          >
+            {weather.irrigationNeeded
+              ? t("weather.irrigation_needed")
+              : "Irrigation Not Needed"}
           </span>
         </div>
       </div>
 
       <div className="text-center mt-3 pt-3 border-t border-card-border">
         <p className="text-xs text-muted-foreground">
-          Last updated: {new Date(weather.lastUpdated).toLocaleTimeString()}
+          {t("weather.last_update")}:{" "}
+          {new Date(weather.lastUpdated).toLocaleTimeString()}
         </p>
-        <button 
+        <button
           onClick={requestLocationPermission}
           className="text-xs text-primary hover:underline mt-1"
         >
-          🔄 Refresh
+          🔄 {t("weather.refresh")}
         </button>
       </div>
     </div>

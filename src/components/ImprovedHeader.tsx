@@ -1,5 +1,7 @@
 import { MapPin, Loader2 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import LanguageSelector from "./LanguageSelector";
+import { useTranslation } from "react-i18next";
 
 interface Language {
   code: string;
@@ -42,6 +44,7 @@ const translations = {
 };
 
 const ImprovedHeader = () => {
+  const { t: p } = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState<string>('en');
   const [detectedLanguage, setDetectedLanguage] = useState<string | null>(null);
 
@@ -68,7 +71,7 @@ const ImprovedHeader = () => {
   const reverseGeocode = async (lat: number, lon: number) => {
     try {
       // OpenStreetMap Nominatim reverse geocoding (no API key required)
-      const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
+      const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&accept-language=${currentLanguage}`;
       const res = await fetch(url, {
         headers: {
           // Note: Browsers may ignore custom User-Agent; Referer is typically sent automatically
@@ -163,36 +166,45 @@ const ImprovedHeader = () => {
   return (
     <header className="bg-card border-b border-card-border shadow-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex flex-col sm:flex-row justify-between items-center h-auto sm:h-16 py-2 sm:py-0">
           {/* Branding */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 mb-2 sm:mb-0 w-full sm:w-auto justify-center sm:justify-start">
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-light rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">🌾</span>
             </div>
-            <div>
+            <div className="text-center sm:text-left">
               <h1 className="font-display font-bold text-xl text-foreground">
-                {t.title}
+                {p("subtitle")}
               </h1>
-              <p className="text-xs text-muted-foreground">{t.subtitle}</p>
+              <p className="text-xs text-muted-foreground"> {p("title")}</p>
             </div>
           </div>
 
-          {/* Live Location */}
-          <div className="flex items-center">
-            <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-card-border bg-accent min-w-[220px] justify-center">
+          {/* Live Location + LanguageSelector */}
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center w-full sm:w-auto justify-center sm:justify-end">
+            <LanguageSelector />
+            <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-card-border bg-accent min-w-[180px] sm:min-w-[220px] justify-center">
               {isLocLoading ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin text-primary" />
-                  <span className="text-sm text-muted-foreground">Detecting location...</span>
+                  <span className="text-sm text-muted-foreground">
+                    Detecting location...
+                  </span>
                 </>
               ) : (
                 <>
                   <MapPin className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-foreground truncate max-w-[280px]" title={locError ? undefined : locationText}>
-                    {locError ? 'Location unavailable' : locationText}
+                  <span
+                    className="text-sm text-foreground truncate max-w-[150px] sm:max-w-[280px]"
+                    title={locError ? undefined : locationText}
+                  >
+                    {locError ? "Location unavailable" : locationText}
                   </span>
                   {locError && (
-                    <button onClick={handleRetry} className="ml-2 text-xs text-primary underline">
+                    <button
+                      onClick={handleRetry}
+                      className="ml-2 text-xs text-primary underline"
+                    >
                       Retry
                     </button>
                   )}

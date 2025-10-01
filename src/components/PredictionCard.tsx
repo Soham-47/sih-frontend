@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
+import { useTranslation } from "react-i18next";
 interface PredictionResult {
   expectedYield: number;
   confidence: number;
@@ -19,6 +19,7 @@ interface PredictionResult {
 }
 
 const PredictionCard = () => {
+  const {t}=useTranslation()
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [prediction, setPrediction] = useState<PredictionResult | null>(null);
@@ -110,7 +111,7 @@ const PredictionCard = () => {
         <CardHeader className="gov-card-header">
           <CardTitle className="flex items-center space-x-2">
             <TrendingUp className="w-6 h-6" />
-            <span>AI Crop Yield Prediction</span>
+            <span>{t("crop_yield.title")}</span>
           </CardTitle>
         </CardHeader>
         <CardContent className="p-6">
@@ -122,81 +123,107 @@ const PredictionCard = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div>
-                <Label htmlFor="nitrogen">Nitrogen (N)</Label>
+                <Label htmlFor="nitrogen">{t("crop_yield.nitrogen")}</Label>
                 <Input
                   id="nitrogen"
                   type="number"
-                  placeholder="Enter Nitrogen value"
+                  placeholder={t("crop_yield.nitrogen_placeholder")}
                   value={formData.nitrogen}
-                  onChange={(e) => setFormData({ ...formData, nitrogen: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, nitrogen: e.target.value })
+                  }
                 />
               </div>
 
               <div>
-                <Label htmlFor="phosphorus">Phosphorus (P)</Label>
+                <Label htmlFor="phosphorus">{t("crop_yield.phosphorus")}</Label>
                 <Input
                   id="phosphorus"
                   type="number"
-                  placeholder="Enter Phosphorus value"
+                  placeholder={t("crop_yield.phosphorus_placeholder")}
                   value={formData.phosphorus}
-                  onChange={(e) => setFormData({ ...formData, phosphorus: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phosphorus: e.target.value })
+                  }
                 />
               </div>
 
               <div>
-                <Label htmlFor="potassium">Potassium (K)</Label>
+                <Label htmlFor="potassium">{t("crop_yield.potassium")}</Label>
                 <Input
                   id="potassium"
                   type="number"
-                  placeholder="Enter Potassium value"
+                  placeholder={t("crop_yield.potassium_placeholder")}
                   value={formData.potassium}
-                  onChange={(e) => setFormData({ ...formData, potassium: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, potassium: e.target.value })
+                  }
                 />
               </div>
             </div>
 
             <div className="space-y-4">
               <div>
-                <Label htmlFor="state">State</Label>
-                <Select onValueChange={(value) => setFormData({ ...formData, state: value })}>
+                <Label htmlFor="state">{t("crop_yield.state")}</Label>
+                <Select
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, state: value })
+                  }
+                >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select your state" />
+                    <SelectValue
+                      placeholder={t("crop_yield.state_placeholder")}
+                    />
                   </SelectTrigger>
                   <SelectContent>
                     {indianStates.map((s) => (
-                      <SelectItem key={s} value={s}>{s}</SelectItem>
+                      <SelectItem key={s} value={s}>
+                        {s}
+                      </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </div>
 
               <div>
-                <Label htmlFor="rainfall">Rainfall (mm)</Label>
+                <Label htmlFor="rainfall">{t("crop_yield.rainfall")}</Label>
                 <Input
                   id="rainfall"
                   type="number"
-                  placeholder="Enter rainfall in mm"
+                  placeholder={t("crop_yield.rainfall_placeholder")}
                   value={formData.rainfall}
-                  onChange={(e) => setFormData({ ...formData, rainfall: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, rainfall: e.target.value })
+                  }
                 />
               </div>
 
               <div>
-                <Label htmlFor="area">Area (hectares)</Label>
+                <Label htmlFor="area">{t("crop_yield.area")}</Label>
                 <Input
                   id="area"
                   type="number"
-                  placeholder="Enter area in hectares"
+                  placeholder={t("crop_yield.area_placeholder")}
                   value={formData.area}
-                  onChange={(e) => setFormData({ ...formData, area: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, area: e.target.value })
+                  }
                 />
               </div>
             </div>
           </div>
 
-          <Button 
+          <Button
             onClick={handlePredict}
-            disabled={!formData.nitrogen || !formData.phosphorus || !formData.potassium || !formData.state || !formData.rainfall || !formData.area || isLoading}
+            disabled={
+              !formData.nitrogen ||
+              !formData.phosphorus ||
+              !formData.potassium ||
+              !formData.state ||
+              !formData.rainfall ||
+              !formData.area ||
+              isLoading
+            }
             className="w-full mt-6 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-primary-foreground"
           >
             {isLoading ? (
@@ -207,7 +234,7 @@ const PredictionCard = () => {
             ) : (
               <>
                 <TrendingUp className="w-4 h-4 mr-2" />
-                Predict Yield with AI
+                {t("crop_yield.predict_button")}
               </>
             )}
           </Button>
@@ -219,7 +246,7 @@ const PredictionCard = () => {
           <CardHeader className="bg-gradient-to-r from-success to-primary text-white rounded-t-lg">
             <CardTitle className="flex items-center space-x-2">
               <TrendingUp className="w-6 h-6" />
-              <span>AI Prediction Results</span>
+              <span>{t("prediction_results.title")}</span>
             </CardTitle>
           </CardHeader>
           <CardContent className="p-6">
@@ -227,13 +254,14 @@ const PredictionCard = () => {
               <div>
                 <div className="text-center mb-6">
                   <div className="text-4xl font-bold text-primary mb-2">
-                    {prediction.expectedYield} tons/hectare
+                    {prediction.expectedYield} {t("prediction_results.unit")}
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Expected Yield
+                    {t("prediction_results.expected_yield")}
                   </div>
                   <div className="status-success mt-2">
-                    {prediction.confidence}% Confidence
+                    {prediction.confidence}%{" "}
+                    {t("prediction_results.confidence")}
                   </div>
                   {prediction.explanation && (
                     <p className="mt-4 text-sm text-foreground/80 leading-relaxed">
@@ -243,29 +271,51 @@ const PredictionCard = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-foreground">Influencing Factors:</h4>
+                  <h4 className="font-semibold text-foreground">
+                    {t("prediction_results.influencing_factors")}
+                  </h4>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="flex items-center"><Thermometer className="w-4 h-4 mr-2" />Weather</span>
-                      <span className="font-semibold">{prediction.factors.weather}%</span>
+                      <span className="flex items-center">
+                        <Thermometer className="w-4 h-4 mr-2" />
+                        {t("prediction_results.weather")}
+                      </span>
+                      <span className="font-semibold">
+                        {prediction.factors.weather}%
+                      </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="flex items-center"><MapPin className="w-4 h-4 mr-2" />Soil Quality</span>
-                      <span className="font-semibold">{prediction.factors.soil}%</span>
+                      <span className="flex items-center">
+                        <MapPin className="w-4 h-4 mr-2" />
+                        {t("prediction_results.soil_quality")}
+                      </span>
+                      <span className="font-semibold">
+                        {prediction.factors.soil}%
+                      </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="flex items-center"><Droplets className="w-4 h-4 mr-2" />Irrigation</span>
-                      <span className="font-semibold">{prediction.factors.irrigation}%</span>
+                      <span className="flex items-center">
+                        <Droplets className="w-4 h-4 mr-2" />
+                        {t("prediction_results.irrigation")}
+                      </span>
+                      <span className="font-semibold">
+                        {prediction.factors.irrigation}%
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h4 className="font-semibold text-foreground mb-3">AI Recommendations:</h4>
+                <h4 className="font-semibold text-foreground mb-3">
+                  {t("prediction_results.ai_recommendations")}
+                </h4>
                 <div className="space-y-3">
                   {prediction.recommendations.map((rec, index) => (
-                    <div key={index} className="flex items-start space-x-3 p-3 bg-accent rounded-lg">
+                    <div
+                      key={index}
+                      className="flex items-start space-x-3 p-3 bg-accent rounded-lg"
+                    >
                       <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-bold">
                         {index + 1}
                       </div>

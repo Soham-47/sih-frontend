@@ -1,0 +1,160 @@
+
+{
+  "weather": {
+    "humidity": "आर्द्रता",
+    "wind": "वारा",
+    "pressure": "दाब",
+    "temperature": "अंदाजे",
+    "irrigation_needed": "सिंचन आवश्यक",
+    "last_update": "शेवटचे अपडेट",
+    "refresh": "रिफ्रेश"
+  },
+ 
+"prediction_results": {
+      "title": "अंदाज परिणाम",
+      "unit": "टन/हेक्टर",
+      "expected_yield": "अपेक्षित उत्पादन",
+      "confidence": "विश्वास",
+      "influencing_factors": "प्रभाव करणारे घटक:",
+      "weather": "हवामान",
+      "soil_quality": "मातीची गुणवत्ता",
+      "irrigation": "सिंचन",
+      "ai_recommendations": "AI शिफारसी:"
+    },
+    "back_to_home": "मुख्य पृष्ठावर परत जा",
+    "title": "स्मार्ट शेती मंच",
+  "subtitle": "आत्मनिर्भर शेती",
+  "weather_des": {
+    "clear_sky": "स्वच्छ आकाश",
+    "clear_night": "स्वच्छ रात्र",
+    "mainly_clear": "मुख्यतः स्वच्छ",
+    "partly_cloudy": "अंशतः ढगाळ",
+    "overcast": "पूर्णपणे ढगाळ",
+    "fog": "धुके",
+    "light_drizzle": "हलकी सरी",
+    "moderate_drizzle": "मध्यम सरी",
+    "dense_drizzle": "घन सरी",
+    "slight_rain": "हलका पाऊस",
+    "moderate_rain": "मध्यम पाऊस",
+    "heavy_rain": "जोरदार पाऊस",
+    "rain_showers": "पावसाच्या सरी",
+    "heavy_rain_showers": "जोरदार पावसाच्या सरी",
+    "violent_rain_showers": "तीव्र पावसाच्या सरी",
+    "slight_snow": "हलकी हिमवृष्टी",
+    "moderate_snow": "मध्यम हिमवृष्टी",
+    "heavy_snow": "जोरदार हिमवृष्टी",
+    "thunderstorm": "वादळी पाऊस",
+    "thunderstorm_hail": "गर्जना आणि गारांसह पाऊस",
+    "thunderstorm_heavy_hail": "गर्जना आणि जोरदार गारांसह पाऊस",
+    "unknown": "अज्ञात"
+  }
+,
+
+     "tool": {
+      "fertilizer": {
+        "title": "खत शिफारसी",
+        "desc": "तुमच्या माती आणि हवामानाच्या परिस्थितीवर आधारित स्मार्ट खत शिफारसी लवकरच येत आहेत..."
+      },
+      "pest_detection": {
+        "title": "कीड शोध आणि नियंत्रण",
+        "desc": "AI-आधारित कीड ओळख आणि उपाय लवकरच येणार आहेत..."
+      },
+      "ai_assistant": {
+        "title": "AI शेती सहाय्यक",
+        "desc": "तात्काळ शेती सल्ल्यासाठी आमच्या AI सहाय्यकासोबत चॅट करा..."
+      },
+      "farm_reports": {
+        "title": "शेती विश्लेषण आणि अहवाल",
+        "desc": "सविस्तर विश्लेषण आणि प्रगती ट्रॅकिंग लवकरच येणार आहे..."
+      },
+      "soil_analysis": {
+        "title": "माती आरोग्य विश्लेषण",
+        "desc": "संपूर्ण माती परीक्षण आणि आरोग्य निरीक्षण लवकरच येत आहे..."
+      }
+    },
+  "welcome": {
+    "title": "आत्मनिर्भर कृषी प्लॅटफॉर्ममध्ये आपले स्वागत आहे",
+    "description": "शेतकऱ्यांना चांगले उत्पादन, स्मार्ट सिंचन आणि शाश्वत शेतीसाठी AI आधारित माहितीने सक्षम करणे."
+  },
+  "crop_yield": {
+  "title": "AI पिक उत्पादन अंदाज",
+  "nitrogen": "नायट्रोजन (N)",
+  "nitrogen_placeholder": "नायट्रोजन मूल्य प्रविष्ट करा",
+  "phosphorus": "फॉस्फरस (P)",
+  "phosphorus_placeholder": "फॉस्फरस मूल्य प्रविष्ट करा",
+  "potassium": "पोटॅशियम (K)",
+  "potassium_placeholder": "पोटॅशियम मूल्य प्रविष्ट करा",
+  "state": "राज्य",
+  "state_placeholder": "तुमचे राज्य निवडा",
+  "rainfall": "पर्जन्य (मिमी)",
+  "rainfall_placeholder": "पर्जन्य मिमी मध्ये प्रविष्ट करा",
+  "area": "क्षेत्रफळ (हेक्टर)",
+  "area_placeholder": "क्षेत्रफळ हेक्टरमध्ये प्रविष्ट करा",
+  "predict_button": "AI सह उत्पादनाचा अंदाज लावा"
+}
+,
+  "Approximate": "अंदाजे",
+ "Enable Location": "स्थान सक्षम करा",
+  "Please allow location access to get real-time weather data for better farming insights.": "उत्तम शेतीसाठी रिअल-टाइम हवामान डेटा मिळवण्यासाठी कृपया स्थान प्रवेशाची परवानगी द्या.",
+  "Location Access Needed": "स्थान प्रवेश आवश्यक आहे",
+  "Getting your location and weather...": "आपले स्थान आणि हवामान मिळवत आहे...",
+  "tags": {
+    "govt_certified": "सरकारी प्रमाणित",
+    "ai_powered": "AI संचालित",
+    "farmer_friendly": "शेतकरी अनुकूल"
+  },
+  "tools": {
+    "heading": "स्मार्ट शेती साधने",
+    "predict_yield": {
+      "title": "उत्पन्नाचा अंदाज",
+      "desc": "AI आधारित पिकांचे उत्पादन अंदाज"
+    },
+    "fertilizer_guide": {
+      "title": "खत मार्गदर्शक",
+      "desc": "स्मार्ट खत शिफारसी"
+    },
+    "pest_detection": {
+      "title": "कीड शोध",
+      "desc": "कीड ओळखा आणि उपाय मिळवा"
+    },
+    "ai_assistant": {
+      "title": "AI सहाय्यक",
+      "desc": "कधीही शेतीविषयी प्रश्न विचारा"
+    },
+    "farm_reports": {
+      "title": "फार्म अहवाल",
+      "desc": "आपली शेती प्रगती ट्रॅक करा"
+    },
+    "soil_analysis": {
+      "title": "माती विश्लेषण",
+      "desc": "मातीच्या आरोग्याचे मेट्रिक्स पाहा"
+    }
+  },
+  "description": {
+    "Clear sky": "साफ आकाश",
+    "Mainly clear": "मुख्यतः स्वच्छ",
+    "Partly cloudy": "आंशिक ढगाळ",
+    "Overcast": "ढगाळ",
+    "Fog": "धुके",
+    "Depositing rime fog": "गार भुरभुर धुके",
+    "Light drizzle": "हलकी पाऊस",
+    "Moderate drizzle": "मध्यम पाऊस",
+    "Dense drizzle": "घन पाऊस",
+    "Slight rain": "हलकी पाऊस",
+    "Moderate rain": "मध्यम पाऊस",
+    "Heavy rain": "सघन पाऊस",
+    "Rain showers": "पावसाच्या सरी",
+    "Heavy rain showers": "भारी पावसाच्या सरी",
+    "Violent rain showers": "तिव्र पावसाच्या सरी",
+    "Slight snow": "हलकी बर्फ",
+    "Moderate snow": "मध्यम बर्फ",
+    "Heavy snow": "भारी बर्फ",
+    "Thunderstorm": "सात्याचा वादळ",
+    "Thunderstorm with hail": "बरफासह वादळ",
+    "Thunderstorm with heavy hail": "भारी बरफासह वादळ"
+  },
+  "footer": {
+    "copyright": "© 2024 किसानAI प्लॅटफॉर्म - कृषी व शेतकरी कल्याण मंत्रालय",
+    "powered_by": "भारतीय शेतीसाठी कृत्रिम बुद्धिमत्ता द्वारे संचालित"
+  }
+}

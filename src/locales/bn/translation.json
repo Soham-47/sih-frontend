@@ -1,0 +1,134 @@
+{
+  "weather": {
+    "rain_showers": "বৃষ্টি",
+    "humidity": "আর্দ্রতা",
+    "wind": "বাতাস",
+    "pressure": "চাপ",
+    "temperature": "প্রায়",
+    "irrigation_needed": "সেচ প্রয়োজন",
+    "last_update": "সর্বশেষ আপডেট",
+    "refresh": "রিফ্রেশ"
+  },
+  "welcome": {
+    "title": "আত্মনির্ভর কৃষি প্ল্যাটফর্মে স্বাগতম",
+    "description": "কৃষকদেরকে উন্নত ফলন, স্মার্ট সেচ ও টেকসই কৃষির জন্য AI-চালিত জ্ঞানের মাধ্যমে শক্তিশালী করা।"
+  },
+  "tags": {
+    "govt_certified": "সরকারি অনুমোদিত",
+    "ai_powered": "AI চালিত",
+    "farmer_friendly": "কৃষকবান্ধব"
+  },
+  "tools": {
+    "heading": "স্মার্ট কৃষি সরঞ্জাম",
+    "predict_yield": {
+      "title": "ফলনের পূর্বাভাস",
+      "desc": "AI-ভিত্তিক ফসল ফলনের পূর্বাভাস"
+    },
+    "fertilizer_guide": {
+      "title": "সার নির্দেশিকা",
+      "desc": "স্মার্ট সার পরামর্শ"
+    },
+    "pest_detection": {
+      "title": "পোকা সনাক্তকরণ",
+      "desc": "পোকা চিনুন এবং সমাধান পান"
+    },
+    "ai_assistant": {
+      "title": "AI সহকারী",
+      "desc": "যেকোনো সময় কৃষি সংক্রান্ত প্রশ্ন করুন"
+    },
+    "farm_reports": {
+      "title": "খামার প্রতিবেদন",
+      "desc": "আপনার চাষের অগ্রগতি ট্র্যাক করুন"
+    },
+    "soil_analysis": {
+      "title": "মাটির বিশ্লেষণ",
+      "desc": "মাটির স্বাস্থ্য মেট্রিক দেখুন"
+    }
+  },
+
+  "crop_yield": {
+    "title": "AI ফসলের ফলনের পূর্বাভাস",
+    "nitrogen": "নাইট্রোজেন (N)",
+    "nitrogen_placeholder": "নাইট্রোজেন মান লিখুন",
+    "phosphorus": "ফসফরাস (P)",
+    "phosphorus_placeholder": "ফসফরাস মান লিখুন",
+    "potassium": "পটাশিয়াম (K)",
+    "potassium_placeholder": "পটাশিয়াম মান লিখুন",
+    "state": "রাজ্য",
+    "state_placeholder": "আপনার রাজ্য নির্বাচন করুন",
+    "rainfall": "বৃষ্টিপাত (মিমি)",
+    "rainfall_placeholder": "বৃষ্টিপাত মিমি-তে লিখুন",
+    "area": "এলাকা (হেক্টর)",
+    "area_placeholder": "এলাকা হেক্টরে লিখুন",
+    "predict_button": "AI দিয়ে ফলনের পূর্বাভাস দিন"
+  },
+  "prediction_results": {
+    "title": "ভবিষ্যদ্বাণী ফলাফল",
+    "unit": "টন/হেক্টর",
+    "expected_yield": "প্রত্যাশিত ফলন",
+    "confidence": "বিশ্বাসযোগ্যতা",
+    "influencing_factors": "প্রভাবকারী উপাদান:",
+    "weather": "আবহাওয়া",
+    "soil_quality": "মাটি গুণমান",
+    "irrigation": "সেচ",
+    "ai_recommendations": "AI সুপারিশ:"
+  },
+  "tool": {
+    "fertilizer": {
+      "title": "সারের সুপারিশ",
+      "desc": "আপনার মাটি এবং আবহাওয়ার ভিত্তিতে স্মার্ট সার সুপারিশ শীঘ্রই আসছে..."
+    },
+    "pest_detection": {
+      "title": "পোকা শনাক্তকরণ ও নিয়ন্ত্রণ",
+      "desc": "AI-সক্ষম পোকা সনাক্তকরণ এবং চিকিত্সার সুপারিশ শীঘ্রই আসছে..."
+    },
+    "ai_assistant": {
+      "title": "AI কৃষি সহকারী",
+      "desc": "তারাতারি কৃষি পরামর্শের জন্য আমাদের AI সহকারীর সাথে চ্যাট করুন..."
+    },
+    "farm_reports": {
+      "title": "ফার্ম বিশ্লেষণ এবং রিপোর্ট",
+      "desc": "বিস্তারিত বিশ্লেষণ এবং অগ্রগতি ট্র্যাকিং শীঘ্রই আসছে..."
+    },
+    "soil_analysis": {
+      "title": "মাটির স্বাস্থ্য বিশ্লেষণ",
+      "desc": "ব্যাপক মাটি পরীক্ষা এবং স্বাস্থ্য পর্যবেক্ষণ শীঘ্রই আসছে..."
+    }
+  },
+  "Enable Location": "অবস্থান সক্ষম করুন",
+  "Please allow location access to get real-time weather data for better farming insights.": "ভালো কৃষি তথ্যের জন্য বাস্তব সময়ের আবহাওয়ার তথ্য পেতে অনুগ্রহ করে অবস্থান অ্যাক্সেস অনুমতি দিন।",
+  "Location Access Needed": "অবস্থান অ্যাক্সেস প্রয়োজন",
+  "Getting your location and weather...": "আপনার অবস্থান এবং আবহাওয়া পাওয়া হচ্ছে...",
+  "weather_des": {
+    "clear_sky": "পরিষ্কার আকাশ",
+    "clear_night": "পরিষ্কার রাত",
+    "mainly_clear": "প্রায় পরিষ্কার",
+    "partly_cloudy": "আংশিক মেঘলা",
+    "overcast": "সম্পূর্ণ মেঘাচ্ছন্ন",
+    "fog": "কুয়াশা",
+    "light_drizzle": "হালকা ঝিরিঝিরি বৃষ্টি",
+    "moderate_drizzle": "মাঝারি ঝিরিঝিরি বৃষ্টি",
+    "dense_drizzle": "ঘন ঝিরিঝিরি বৃষ্টি",
+    "slight_rain": "হালকা বৃষ্টি",
+    "moderate_rain": "মাঝারি বৃষ্টি",
+    "heavy_rain": "ভারী বৃষ্টি",
+    "rain_showers": "বৃষ্টির ঝাপটা",
+    "heavy_rain_showers": "ভারী বৃষ্টির ঝাপটা",
+    "violent_rain_showers": "প্রচন্ড বৃষ্টির ঝাপটা",
+    "slight_snow": "হালকা তুষার",
+    "moderate_snow": "মাঝারি তুষার",
+    "heavy_snow": "ভারী তুষার",
+    "thunderstorm": "বজ্রঝড়",
+    "thunderstorm_hail": "বজ্রঝড় ও শিলাবৃষ্টি",
+    "thunderstorm_heavy_hail": "বজ্রঝড় ও ভারী শিলাবৃষ্টি",
+    "unknown": "অজানা"
+  },
+  "Approximate": "প্রায়",
+  "back_to_home": "হোমে ফিরে যান",
+  "footer": {
+    "copyright": "© 2024 কিষাণAI প্ল্যাটফর্ম - কৃষি ও কৃষক কল্যাণ মন্ত্রণালয়",
+    "powered_by": "ভারতীয় কৃষির জন্য কৃত্রিম বুদ্ধিমত্তা দ্বারা চালিত"
+  },
+  "title": "স্মার্ট কৃষি প্ল্যাটফর্ম",
+  "subtitle": "আত্মনির্ভর কৃষি"
+}
