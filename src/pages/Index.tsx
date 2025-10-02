@@ -6,9 +6,10 @@ import PredictionCard from "@/components/PredictionCard";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const Index = () => {
-   const { t } = useTranslation();
+  const { t } = useTranslation();
   console.log("Index component is rendering");
   const [activeFeature, setActiveFeature] = useState<string | null>(null);
 
@@ -30,9 +31,7 @@ const Index = () => {
             <h2 className="font-display font-bold text-2xl text-foreground mb-4">
               🌱 {t("tool.fertilizer.title")}
             </h2>
-            <p className="text-muted-foreground">
-              {t("tool.fertilizer.desc")}
-            </p>
+            <p className="text-muted-foreground">{t("tool.fertilizer.desc")}</p>
           </div>
         );
       case "pest-control":
@@ -90,7 +89,7 @@ const Index = () => {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeFeature ? (
-          <div className="space-y-6">
+         <div className="space-y-6">
             <Button
               onClick={handleBackToHome}
               variant="outline"
@@ -135,6 +134,13 @@ const Index = () => {
             {/* Stats Section removed by request */}
           </div>
         )}
+        <div className="flex flex-col items-center mt-6 justify-center bg-gray-50">
+          <Link to="/forum">
+            <button className="bg-blue-800 text-yellow-100 px-6 py-3 rounded-lg hover:bg-blue-700 hover:text-yellow-50 font-medium shadow-md transition-colors">
+              {t("join_community")}
+            </button>
+          </Link>
+        </div>
       </main>
 
       {/* Footer */}

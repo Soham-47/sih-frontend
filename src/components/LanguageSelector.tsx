@@ -13,6 +13,7 @@ const languages: Language[] = [
   { code: "mr", label: "मराठी" },
   { code: "te", label: "తెలుగు" },
   { code: "ta", label: "தமிழ்" },
+  { code: "or", label: "ଓଡ଼ିଆ" }
 ];
 
 export default function LanguageSelector(): JSX.Element {

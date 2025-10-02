@@ -1,0 +1,147 @@
+{
+  "weather": {
+    "humidity": "ଆର୍ଦ୍ରତା",
+    "wind": "ପବନ",
+    "pressure": "ଚାପ",
+    "temperature": "ତାପମାତ୍ରା",
+    "irrigation_needed": "ସିଚାଇ ଆବଶ୍ୟକ",
+    "last_update": "ଶେଷ ଅଦ୍ୟତନ",
+    "refresh": "ପୁନର୍ଜୀବନ"
+  },
+
+  "prediction_results": {
+    "title": "ଅନୁମାନିତ ଫଳାଫଳ",
+    "unit": "ଟନ୍/ହେକ୍ଟର",
+    "expected_yield": "ଅନୁମାନିତ ଉତ୍ପାଦନ",
+    "confidence": "ଆତ୍ମବିଶ୍ୱାସ",
+    "influencing_factors": "ପ୍ରଭାବିତ କାରକ:",
+    "weather": "ଆବହାଅ",
+    "soil_quality": "ମାଟିର ଗୁଣ",
+    "irrigation": "ସିଚାଇ",
+    "ai_recommendations": "AI ସୁପାରିଶ:"
+  },
+  "title": "ସ୍ମାର୍ଟ କୃଷି ପ୍ଲାଟଫର୍ମ",
+  "subtitle": "ଆତ୍ମନିର୍ଭର କୃଷି",
+  "weather_des": {
+    "clear_sky": "ସ୍ପଷ୍ଟ ଆକାଶ",
+    "clear_night": "ସ୍ପଷ୍ଟ ରାତ୍ରି",
+    "mainly_clear": "ମୁଖ୍ୟତଃ ସ୍ପଷ୍ଟ",
+    "partly_cloudy": "ଆଂଶିକ ମେଘାଛାଦିତ",
+    "overcast": "ପୁରାପୁରି ମେଘାଛାଦିତ",
+    "fog": "କୁହୁଡି",
+    "light_drizzle": "ହାଲୁକା ଝିମି ଝିମି",
+    "moderate_drizzle": "ମଧ୍ୟମ ଝିମି ଝିମି",
+    "dense_drizzle": "ଘନ ଝିମି ଝିମି",
+    "slight_rain": "ହାଲୁକା ବର୍ଷା",
+    "moderate_rain": "ମଧ୍ୟମ ବର୍ଷା",
+    "heavy_rain": "ଭାରି ବର୍ଷା",
+    "rain_showers": "ବର୍ଷାର ଝପଟା",
+    "heavy_rain_showers": "ଭାରି ବର୍ଷାର ଝପଟା",
+    "violent_rain_showers": "ତୀବ୍ର ବର୍ଷାର ଝପଟା",
+    "slight_snow": "ହାଲୁକା ତୁଷାର",
+    "moderate_snow": "ମଧ୍ୟମ ତୁଷାର",
+    "heavy_snow": "ଭାରି ତୁଷାର",
+    "thunderstorm": "ଘୋରାପାଟି",
+    "thunderstorm_hail": "ଘୋରାପାଟି ସହିତ ଓଲା",
+    "thunderstorm_heavy_hail": "ଘୋରାପାଟି ସହିତ ଭାରି ଓଲା",
+    "unknown": "ଅଜଣା"
+  },
+  "Irrigation Not Needed": "ସିଚାଇ ଆବଶ୍ୟକ ନୁହେଁ",
+  "AI is Analyzing...": "AI ବିଶ୍ଳେଷଣ କରୁଛି...",
+  "join_community": "ଚାଷୀ ସମୁଦାୟରେ ଯୋଗଦିଅନ୍ତୁ",
+  "community": "ଚାଷୀ ସମୁଦାୟ",
+  "tagline": "ପ୍ରଶ୍ନ ପଚାରନ୍ତୁ, ଜ୍ଞାନ ସେୟାର କରନ୍ତୁ, ସଙ୍ଗେ ସଙ୍ଗେ ଅଗ୍ରଗତି କରନ୍ତୁ",
+  "ask_question": "ପ୍ରଶ୍ନ ପଚାରନ୍ତୁ",
+  "ask_placeholder": "ଆପଣ କ'ଣ ଜାଣିବାକୁ ଚାହୁଁଛନ୍ତି? ଏଠାରେ ଆପଣଙ୍କ କୃଷି ସମ୍ବନ୍ଧୀୟ ପ୍ରଶ୍ନଗୁଡ଼ିକ ସେୟାର କରନ୍ତୁ...",
+  "stop_recording": "ରେକର୍ଡିଂ ବନ୍ଦ କରନ୍ତୁ",
+  "record_audio": "ଅଡିଓ ରେକର୍ଡ କରନ୍ତୁ",
+  "post_question": "ପ୍ରଶ୍ନ ପୋଷ୍ଟ କରନ୍ତୁ",
+  "recording_progress": "ରେକର୍ଡିଂ ଚାଲିଛି...",
+  "reply_placeholder": "ଆପଣଙ୍କ ଉତ୍ତର ଲେଖନ୍ତୁ...",
+  "post_reply": "ଉତ୍ତର ପୋଷ୍ଟ କରନ୍ତୁ",
+  "cancel": "ବାତିଲ୍ କରନ୍ତୁ",
+  "back_to_home": "ମୁଖ୍ୟ ପୃଷ୍ଠାକୁ ଫେରନ୍ତୁ",
+  "tool": {
+    "fertilizer": {
+      "title": "ଖାଦ୍ୟ ସୁପାରିଶ",
+      "desc": "ଆପଣଙ୍କ ମାଟି ଏବଂ ଆବହାଅ ପରିସ୍ଥିତି ଅନୁସାରେ ସ୍ମାର୍ଟ ଖାଦ୍ୟ ସୁପାରିଶ ଶୀଘ୍ର ଆସୁଛି..."
+    },
+    "pest_detection": {
+      "title": "କୀଟପତଙ୍ଗ ସନ୍ଦେହ",
+      "desc": "AI ଆଧାରିତ କୀଟପତଙ୍ଗ ସନ୍ଦେହ ଏବଂ ଚିକିତ୍ସା ସୁପାରିଶ ଶୀଘ୍ର ଆସୁଛି..."
+    },
+    "ai_assistant": {
+      "title": "AI କୃଷି ସହାୟକ",
+      "desc": "ତୁରନ୍ତ କୃଷି ପରାମର୍ଶ ପାଇଁ ଆମ AI ସହାୟକ ସହିତ ଚାଟ୍ କରନ୍ତୁ..."
+    },
+    "farm_reports": {
+      "title": "ଖେତ ରିପୋର୍ଟ ଏବଂ ବିଶ୍ଳେଷଣ",
+      "desc": "ବିସ୍ତୃତ ବିଶ୍ଳେଷଣ ଏବଂ ପ୍ରଗତି ଟ୍ରାକିଂ ଶୀଘ୍ର ଆସୁଛି..."
+    },
+    "soil_analysis": {
+      "title": "ମାଟି ସ୍ୱାସ୍ଥ୍ୟ ବିଶ୍ଳେଷଣ",
+      "desc": "ସମ୍ପୂର୍ଣ୍ଣ ମାଟି ପରୀକ୍ଷା ଏବଂ ସ୍ୱାସ୍ଥ୍ୟ ନିରୀକ୍ଷଣ ଶୀଘ୍ର ଆସୁଛି..."
+    }
+  },
+  "welcome": {
+    "title": "ଆତ୍ମନିର୍ଭର କୃଷି ପ୍ଲାଟଫର୍ମରେ ସ୍ୱାଗତ",
+    "description": "ଚାଷୀମାନଙ୍କୁ AI-ଆଧାରିତ ତଥ୍ୟ ସହିତ ସକ୍ତିଶାଳୀ କରିବା, ଉତ୍ତମ ଫସଲ ଉତ୍ପାଦନ, ସ୍ମାର୍ଟ ସିଚାଇ ଏବଂ ସସ୍ଥାୟୀ କୃଷି ପାଇଁ।"
+  },
+  "tags": {
+    "govt_certified": "ସରକାରୀ ପ୍ରମାଣିତ",
+    "ai_powered": "AI ଚାଲିତ",
+    "farmer_friendly": "ଚାଷୀମାନଙ୍କ ପାଇଁ ସହଜ"
+  },
+  "tools": {
+    "heading": "ସ୍ମାର୍ଟ କୃଷି ଉପକରଣ",
+    "predict_yield": {
+      "title": "ଉତ୍ପାଦନ ଅନୁମାନ",
+      "desc": "AI ଆଧାରିତ ଫସଲ ଉତ୍ପାଦନ ଅନୁମାନ"
+    },
+    "fertilizer_guide": {
+      "title": "ଖାଦ୍ୟ ମାର୍ଗଦର୍ଶିକା",
+      "desc": "ସ୍ମାର୍ଟ ଖାଦ୍ୟ ସୁପାରିଶ"
+    },
+    "pest_detection": {
+      "title": "କୀଟପତଙ୍ଗ ସନ୍ଦେହ",
+      "desc": "କୀଟପତଙ୍ଗ ସନ୍ଦେହ କରନ୍ତୁ ଏବଂ ସମାଧାନ ପାଆନ୍ତୁ"
+    },
+    "ai_assistant": {
+      "title": "AI ସହାୟକ",
+      "desc": "ଯେକୋଣସି ସମୟରେ କୃଷି ସମ୍ବନ୍ଧୀୟ ପ୍ରଶ୍ନ ପଚାରନ୍ତୁ"
+    },
+    "farm_reports": {
+      "title": "ଖେତ ରିପୋର୍ଟ",
+      "desc": "ଆପଣଙ୍କ କୃଷିର ପ୍ରଗତିକୁ ଟ୍ରାକ୍ କରନ୍ତୁ"
+    },
+    "soil_analysis": {
+      "title": "ମାଟି ବିଶ୍ଳେଷଣ",
+      "desc": "ମାଟି ସ୍ୱାସ୍ଥ୍ୟ ତଥ୍ୟଗୁଡିକୁ ଦେଖନ୍ତୁ"
+    }
+  },
+  "crop_yield": {
+    "title": "AI ଫସଲ ଉତ୍ପାଦନ ପୂର୍ବାନୁମାନ",
+    "nitrogen": "ନାଇଟ୍ରୋଜେନ (N)",
+    "nitrogen_placeholder": "ନାଇଟ୍ରୋଜେନ ମୂଲ୍ୟ ଦିଅନ୍ତୁ",
+    "phosphorus": "ଫସଫୋରସ୍ (P)",
+    "phosphorus_placeholder": "ଫସଫୋରସ୍ ମୂଲ୍ୟ ଦିଅନ୍ତୁ",
+    "potassium": "ପୋଟାସିଆମ୍ (K)",
+    "potassium_placeholder": "ପୋଟାସିଆମ୍ ମୂଲ୍ୟ ଦିଅନ୍ତୁ",
+    "state": "ରାଜ୍ୟ",
+    "state_placeholder": "ଆପଣଙ୍କ ରାଜ୍ୟ ବାଛନ୍ତୁ",
+    "rainfall": "ବର୍ଷା (ମି.ମି.)",
+    "rainfall_placeholder": "ବର୍ଷାକୁ ମି.ମି.ରେ ଲେଖନ୍ତୁ",
+    "area": "କ୍ଷେତ୍ରଫଳ (ହେକ୍ଟର)",
+    "area_placeholder": "କ୍ଷେତ୍ରଫଳକୁ ହେକ୍ଟରରେ ଲେଖନ୍ତୁ",
+    "predict_button": "AI ସହିତ ଉତ୍ପାଦନ ଅନୁମାନ"
+  },
+  "Approximate": "ଅନୁମାନିତ",
+  "Enable Location": "ଅବସ୍ଥାନ ସକ୍ରିୟ କରନ୍ତୁ",
+  "Please allow location access to get real-time weather data for better farming insights.": "ଭଲ କୃଷି ପରାମର୍ଶ ପାଇଁ ଯଥାସମୟରେ ଆବହାଅ ତଥ୍ୟ ପାଇବାକୁ ଦୟାକରି ଅବସ୍ଥାନ ଅନୁମତି ଦିଅନ୍ତୁ।",
+  "Location Access Needed": "ଅବସ୍ଥାନ ଅନୁମତି ଆବଶ୍ୟକ",
+  "Getting your location and weather...": "ଆପଣଙ୍କ ଅବସ୍ଥାନ ଏବଂ ଆବହାଅ ପାଉଛି...",
+  "footer": {
+    "copyright": "© 2024 କୃଷକAI ପ୍ଲାଟଫର୍ମ - କୃଷି ଏବଂ କୃଷକ କଲ୍ୟାଣ ମନ୍ତ୍ରାଳୟ",
+    "powered_by": "ଭାରତୀୟ କୃଷି ପାଇଁ କୃତ୍ରିମ ବୁଦ୍ଧିମତା ଦ୍ୱାରା ସଂଚାଳିତ"
+  }
+}

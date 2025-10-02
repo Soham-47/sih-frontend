@@ -8,7 +8,7 @@
     "last_update": "Last update",
     "refresh": "Refresh"
   },
- "weather_des": {
+  "weather_des": {
     "clear_sky": "Clear sky",
     "clear_night": "Clear night",
     "mainly_clear": "Mainly clear",
@@ -32,6 +32,20 @@
     "thunderstorm_heavy_hail": "Thunderstorm with heavy hail",
     "unknown": "Unknown"
   },
+  "Irrigation Not Needed": "Irrigation Not Needed",
+  "AI is Analyzing...": "AI is Analyzing...",
+  "join_community": "Join Farmers Community",
+  "community": "Farmer's Community",
+  "tagline": "Ask questions, share knowledge, grow together",
+  "ask_question": "Ask a Question",
+  "ask_placeholder": "What would you like to know? Share your farming questions here...",
+  "stop_recording": "Stop Recording",
+  "record_audio": "Record Audio",
+  "post_question": "Post Question",
+  "recording_progress": "Recording in progress...",
+  "reply_placeholder": "Write your reply...",
+  "post_reply": "Post Reply",
+  "cancel": "Cancel",
   "title": "Smart Agriculture Platform",
   "subtitle": "Atmanirbhar Krishi",
   "welcome": {
@@ -95,29 +109,29 @@
     "copyright": "© 2024 KisanAI Platform - Ministry of Agriculture & Farmers Welfare",
     "powered_by": "Powered by Artificial Intelligence for Indian Agriculture"
   },
-   "back_to_home": "Back To Home",
-   "tool": {
-      "fertilizer": {
-        "title": "Fertilizer Recommendations",
-        "desc": "Smart fertilizer suggestions based on your soil and weather conditions coming soon..."
-      },
-      "pest_detection": {
-        "title": "Pest Detection & Control",
-        "desc": "AI-powered pest identification and treatment recommendations coming soon..."
-      },
-      "ai_assistant": {
-        "title": "AI Farming Assistant",
-        "desc": "Chat with our AI assistant for instant farming advice coming soon..."
-      },
-      "farm_reports": {
-        "title": "Farm Analytics & Reports",
-        "desc": "Detailed analytics and progress tracking coming soon..."
-      },
-      "soil_analysis": {
-        "title": "Soil Health Analysis",
-        "desc": "Comprehensive soil testing and health monitoring coming soon..."
-      }
+  "back_to_home": "Back To Home",
+  "tool": {
+    "fertilizer": {
+      "title": "Fertilizer Recommendations",
+      "desc": "Smart fertilizer suggestions based on your soil and weather conditions coming soon..."
     },
+    "pest_detection": {
+      "title": "Pest Detection & Control",
+      "desc": "AI-powered pest identification and treatment recommendations coming soon..."
+    },
+    "ai_assistant": {
+      "title": "AI Farming Assistant",
+      "desc": "Chat with our AI assistant for instant farming advice coming soon..."
+    },
+    "farm_reports": {
+      "title": "Farm Analytics & Reports",
+      "desc": "Detailed analytics and progress tracking coming soon..."
+    },
+    "soil_analysis": {
+      "title": "Soil Health Analysis",
+      "desc": "Comprehensive soil testing and health monitoring coming soon..."
+    }
+  },
   "prediction_results": {
     "title": "Prediction Results",
     "unit": "tons/hectare",

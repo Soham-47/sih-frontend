@@ -46,6 +46,20 @@
     "thunderstorm_heavy_hail": "आंधी के साथ भारी ओला",
     "unknown": "अज्ञात"
   },
+  "Irrigation Not Needed": "सिंचाई की आवश्यकता नहीं",
+  "AI is Analyzing...": "एआई विश्लेषण कर रहा है...",
+  "join_community": "किसानों के समुदाय से जुड़ें",
+  "community": "किसानों का समुदाय",
+  "tagline": "प्रश्न पूछें, ज्ञान साझा करें, साथ मिलकर आगे बढ़ें",
+  "ask_question": "प्रश्न पूछें",
+  "ask_placeholder": "आप क्या जानना चाहते हैं? यहाँ अपने खेती से जुड़े प्रश्न साझा करें...",
+  "stop_recording": "रिकॉर्डिंग बंद करें",
+  "record_audio": "ऑडियो रिकॉर्ड करें",
+  "post_question": "प्रश्न पोस्ट करें",
+  "recording_progress": "रिकॉर्डिंग जारी है...",
+  "reply_placeholder": "अपना उत्तर लिखें...",
+  "post_reply": "उत्तर पोस्ट करें",
+  "cancel": "रद्द करें",
   "back_to_home": "मुख्य पृष्ठ पर वापस जाएँ",
   "tool": {
     "fertilizer": {

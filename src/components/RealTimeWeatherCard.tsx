@@ -374,7 +374,7 @@ const RealTimeWeatherCard = () => {
           >
             {weather.irrigationNeeded
               ? t("weather.irrigation_needed")
-              : "Irrigation Not Needed"}
+              : t("Irrigation Not Needed")}
           </span>
         </div>
       </div>
