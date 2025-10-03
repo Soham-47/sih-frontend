@@ -159,7 +159,7 @@ const Index = () => {
       <footer className="bg-card border-t border-card-border mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center text-muted-foreground">
-            <p>{t("footer.copyright")}</p>
+            <p>2025 Atmanirbhar Krishi Platform</p>
             <p className="text-sm mt-2">{t("footer.powered_by")}</p>
           </div>
         </div>
